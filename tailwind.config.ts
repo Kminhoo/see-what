@@ -13,7 +13,8 @@ const config: Config = {
         lightGray: '#b3b3b3',
         darkGray: '#979797',
         placeholder: '#505050',
-        blackDefault: '#101010'
+        blackDefault: '#101010',
+        inputBackGround: '#222222'
       },
       textShadow: {
         sm: '1px 1px 2px rgba(0, 0, 0, 0.5)',
