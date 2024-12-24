@@ -13,7 +13,8 @@ const config: Config = {
         lightGray: '#b3b3b3',
         darkGray: '#979797',
         placeholder: '#505050',
-        blackDefault: '#101010'
+        blackDefault: '#101010',
+        inputBackGround: '#222222'
       }
     }
   },
