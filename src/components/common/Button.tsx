@@ -1,13 +1,14 @@
 interface ButtonProps {
   className?: string;
-  label: string;
+  label?: string;
   onClick?: () => void;
   children?: React.ReactNode;
+  type: 'button' | 'submit' | 'reset';
 }
 
-const Button = ({ className, label, onClick, children }: ButtonProps) => {
+const Button = ({ className, label, onClick, children, type }: ButtonProps) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button className={className} onClick={onClick} type={type}>
       {label}
       {children}
     </button>
