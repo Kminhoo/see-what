@@ -10,7 +10,7 @@ interface TeamInfoProps {
 
 const TeamInfoCard = ({ member }: TeamInfoProps) => {
   return (
-    <Link key={member.id} href={member.src} className="flex items-center justify-center gap-1">
+    <Link key={member.id} href={member.src} className="flex items-center justify-center gap-1 text-sm">
       <GitHub className="fill-white w-[20px] h-[20px]" />
       <div>
         <p>{member.name}</p>

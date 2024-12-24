@@ -38,8 +38,8 @@ const Footer = () => {
   return (
     <footer>
       <div className="max-w-[1280px] w-full m-auto flex flex-col items-center justify-center p-4 text-white font-light">
-        <div className="flex flex-col items-center justify-center gap-2">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col items-center justify-center gap-4">
+          <div className="flex items-center gap-4">
             {teamMembersInfo.map((member) => (
               <TeamInfoCard key={member.id} member={member} />
             ))}

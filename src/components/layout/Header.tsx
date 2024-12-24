@@ -8,7 +8,7 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <header>
+    <header className="absolute top-0 left-0 right-0 z-50">
       <div className="max-w-[1280px] w-full m-auto flex items-center justify-between  p-4 text-white font-light">
         <div className="cursor-pointer text-2xl" onClick={() => router.push('/')}>
           SEEWHAT

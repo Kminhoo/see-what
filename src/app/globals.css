@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-white !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  @apply text-white text-[35px] !important;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply bg-white !important;
+}
