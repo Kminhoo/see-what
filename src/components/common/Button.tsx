@@ -1,6 +1,6 @@
 interface ButtonProps {
   className?: string;
-  label: string;
+  label?: string;
   onClick?: () => void;
   children?: React.ReactNode;
   type: 'button' | 'submit' | 'reset';
