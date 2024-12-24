@@ -1,30 +1,30 @@
 'use client';
 
-import { signup } from '@app/(auth)/action';
 import Button from '@components/common/Button';
 import Input from '@components/common/Input';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { userSignUpSchema } from 'lib/schemas/userSchema';
+import { login } from '@app/(auth)/action';
+import { userLoginSchema } from 'lib/schemas/userSchema';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
-type SignUpFormData = z.infer<typeof userSignUpSchema>;
+type LoginFormData = z.infer<typeof userLoginSchema>;
 
-const SignUpForm = () => {
+const LoginForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm<SignUpFormData>({
-    resolver: zodResolver(userSignUpSchema)
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(userLoginSchema)
   });
 
-  const onSubmit: SubmitHandler<SignUpFormData> = async (data) => {
+  const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
     });
-    await signup(formData);
+    await login(formData);
   };
 
   return (
@@ -37,21 +37,13 @@ const SignUpForm = () => {
           {...register('password')}
           errorMessage={errors.password?.message}
         />
-        <Input
-          type="password"
-          placeholder="confirm password"
-          {...register('confirmPassword')}
-          errorMessage={errors.confirmPassword?.message}
-        />
-        <Input type="text" placeholder="nickname" {...register('nickname')} errorMessage={errors.nickname?.message} />
         <Button
           className="w-full p-3 bg-buttonBackGround text-white rounded-sm hover:bg-zinc-700 transition-colors"
           type="submit"
-          label="회원가입"
+          label="로그인"
         />
       </form>
     </div>
   );
 };
-
-export default SignUpForm;
+export default LoginForm;
