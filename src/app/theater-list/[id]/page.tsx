@@ -1,10 +1,18 @@
-import { CafeIcon } from '@components/icons/Cafe';
+import { fetchTheaterDetail } from '@lib/theaterDetailApi/serverApi';
 import { ParkingIcon } from '@components/icons/Parking';
-import { RestaurantIcon } from '@components/icons/Restaurant';
 import { RestroomIcon } from '@components/icons/Restroom';
-import SearchIcon from '@components/icons/Search';
+import { RestaurantIcon } from '@components/icons/Restaurant';
+import { CafeIcon } from '@components/icons/Cafe';
 
-const TheaterDetailPage = () => {
+interface TheaterDetailProps {
+  params: { id: string };
+}
+
+const TheaterDetailPage = async ({ params }: TheaterDetailProps) => {
+  const { id } = params;
+
+  const theaterInfo = await fetchTheaterDetail(id);
+
   return (
     <>
       <div className="mt-20 text-white  flex flex-col items-center">
@@ -12,16 +20,20 @@ const TheaterDetailPage = () => {
           {/* 공연장 정보 Section */}
           <div className="flex-1">
             <div>
-              <h1 className="text-4xl font-bold mb-10">충무 아트센터</h1>
+              <h1 className="text-4xl font-bold mb-10">{theaterInfo.fcltynm}</h1>
               <div className="text-xl flex flex-col gap-4 mb-8">
-                <p>전화번호 | 02-2230-6600</p>
-                <p>주소 | 서울시 중구 퇴계로 387</p>
-                <p>
-                  홈페이지 |{' '}
-                  <a href="http://www.caci.or.kr" className="underline text-blue-400">
-                    http://www.caci.or.kr
-                  </a>
-                </p>
+                <p>전화번호 | {theaterInfo.telno}</p>
+                <p>주소 | {theaterInfo.adres}</p>
+                {theaterInfo.relateurl ? (
+                  <p>
+                    홈페이지 |{' '}
+                    <a href={theaterInfo.relateurl} target="_blank">
+                      {theaterInfo.relateurl}
+                    </a>
+                  </p>
+                ) : (
+                  <p>홈페이지 | 홈페이지가 없습니다</p>
+                )}
               </div>
             </div>
             <div className="mb-10">
@@ -57,13 +69,13 @@ const TheaterDetailPage = () => {
                   <span>화장실</span>
                 </div>
                 {/* <div className="flex flex-col items-center">
-                <WheelchairIcon />
-                <span>경사로</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <ElevatorIcon  />
-                <span>엘리베이터</span>
-              </div> */}
+                    <WheelchairIcon />
+                    <span>경사로</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <ElevatorIcon  />
+                    <span>엘리베이터</span>
+                  </div> */}
               </div>
             </div>
           </div>
