@@ -14,11 +14,6 @@ import man from '@assets/images/man.jpg';
 import hide from '@assets/images/hide.jpg';
 import boots from '@assets/images/boots.jpg';
 
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 import { useRef, useCallback } from 'react';
 
 const HomeCarousel = () => {
@@ -39,9 +34,6 @@ const HomeCarousel = () => {
           <Swiper
             slidesPerView={1}
             effect={'fade'}
-            pagination={{
-              clickable: true
-            }}
             loop={true}
             autoplay={{
               delay: 2000
@@ -65,12 +57,14 @@ const HomeCarousel = () => {
 
           <div className="absolute z-50 flex justify-between w-full top-1/2 transform -translate-y-1/2 px-4">
             <Button
+              type="button"
               className="w-[50px] h-[50px] bg-white/50 hover:bg-white/80 text-black rounded-[50%] border-none outline-none flex items-center justify-center"
               onClick={handlePrev}
             >
               <PrevArrow />
             </Button>
             <Button
+              type="button"
               className="w-[50px] h-[50px] bg-white/50 hover:bg-white/80 text-black rounded-[50%] border-none outline-none flex items-center justify-center"
               onClick={handleNext}
             >
