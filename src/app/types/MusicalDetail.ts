@@ -10,12 +10,20 @@ export interface MusicalDetailData {
   poster: string;
   prfruntime: string;
   prfage: string;
+  entrpsnm: string;
+  entrpsnmP: string;
+  prfcrew: string;
   prfcast: string;
-  styurl: string;
+  styurls: string[];
 }
 
 export interface MusicalPageProps {
   params: {
     id: string;
   };
+}
+
+export interface TabProps {
+  tabs: string[];
+  children: React.ReactNode[];
 }

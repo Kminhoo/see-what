@@ -65,12 +65,14 @@ const HomeCarousel = () => {
 
           <div className="absolute z-50 flex justify-between w-full top-1/2 transform -translate-y-1/2 px-4">
             <Button
+              type="button"
               className="w-[50px] h-[50px] bg-white/50 hover:bg-white/80 text-black rounded-[50%] border-none outline-none flex items-center justify-center"
               onClick={handlePrev}
             >
               <PrevArrow />
             </Button>
             <Button
+              type="button"
               className="w-[50px] h-[50px] bg-white/50 hover:bg-white/80 text-black rounded-[50%] border-none outline-none flex items-center justify-center"
               onClick={handleNext}
             >

@@ -47,6 +47,9 @@ export const getMusicalDetailData = async (id: string): Promise<MusicalDetailDat
       poster: details.poster?.[0] || '',
       prfruntime: details.prfruntime?.[0] || '',
       prfage: details.prfage?.[0] || '',
+      entrpsnm: details.entrpsnm?.[0] || '',
+      entrpsnmP: details.entrpsnmP?.[0] || '',
+      prfcrew: details.prfcrew?.[0] || '',
       prfcast: details.prfcast?.[0] || '',
       styurls: details.styurls?.[0]?.styurl || []
     };
