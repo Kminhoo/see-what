@@ -1,5 +1,6 @@
-interface theaterDetail {
+export interface TheaterDetail {
   fcltynm: string; // 공연장이름 name
+  mt10id: string; // 공연장 id
   telno: string; // 전화번호 telephone
   relateurl: string; //홈페이지 주소 hompage_url
   adres: string; //주소 adress

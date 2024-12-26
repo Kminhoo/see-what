@@ -1,3 +1,3 @@
-export interface theaterId {
+export interface TheaterId {
   mt10id: string;
 }

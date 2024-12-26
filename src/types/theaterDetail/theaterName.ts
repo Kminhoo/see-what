@@ -1,3 +1,3 @@
-export interface theaterName {
+export interface TheaterName {
   fcltynm: string;
 }
