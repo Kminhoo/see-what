@@ -2,8 +2,9 @@
 
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+
+import { userLoginSchema } from '@lib/schemas/userSchema';
 import createClient from '@utils/supabase/server';
-import { userLoginSchema } from 'lib/schemas/userSchema';
 
 // 회원가입
 export const signup = async (formData: FormData) => {
