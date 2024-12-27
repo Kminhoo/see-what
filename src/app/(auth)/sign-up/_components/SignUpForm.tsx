@@ -1,12 +1,15 @@
 'use client';
 
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
 import { signup } from '@app/(auth)/action';
+import { userSignUpSchema } from '@lib/schemas/userSchema';
+
 import Button from '@components/common/Button';
 import Input from '@components/common/Input';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { userSignUpSchema } from 'lib/schemas/userSchema';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { z } from 'zod';
 
 type SignUpFormData = z.infer<typeof userSignUpSchema>;
 
@@ -28,7 +31,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="w-full max-w-md space-y-4">
+    <div className="w-[500px] max-w-full space-y-4">
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
         <Input type="email" placeholder="e-mail" {...register('email')} errorMessage={errors.email?.message} />
         <Input

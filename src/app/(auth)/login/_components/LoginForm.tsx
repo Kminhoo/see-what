@@ -1,12 +1,17 @@
 'use client';
 
+import Image from 'next/image';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { z } from 'zod';
+
+import { googleLogin, login } from '@app/(auth)/action';
+import googoleLogo from '@assets/images/googleLogo.png';
+import { userLoginSchema } from '@lib/schemas/userSchema';
+
 import Button from '@components/common/Button';
 import Input from '@components/common/Input';
-import { login } from '@app/(auth)/action';
-import { userLoginSchema } from 'lib/schemas/userSchema';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 
 type LoginFormData = z.infer<typeof userLoginSchema>;
 
@@ -27,8 +32,12 @@ const LoginForm = () => {
     await login(formData);
   };
 
+  const hadleGoogleLogin = () => {
+    googleLogin();
+  };
+
   return (
-    <div className="w-full max-w-md space-y-4">
+    <div className="w-[400px] max-w-full space-y-4">
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
         <Input type="email" placeholder="e-mail" {...register('email')} errorMessage={errors.email?.message} />
         <Input
@@ -42,6 +51,17 @@ const LoginForm = () => {
           type="submit"
           label="로그인"
         />
+
+        <Button type="button" onClick={hadleGoogleLogin}>
+          <Image
+            src={googoleLogo}
+            alt="google Login"
+            width={30}
+            height={30}
+            style={{ width: 30, height: 30 }}
+            sizes="30px"
+          />
+        </Button>
       </form>
     </div>
   );
