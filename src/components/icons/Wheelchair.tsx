@@ -1,14 +1,10 @@
-interface WheelchairIconProps {
-    width?: string;
-    height?: string;
-    color?: string;
-  }
+import { IconProps } from "@tsc/theaterDetail/Icon";
   
   export const WheelchairIcon = ({
     width = '50px',
     height = '50px',
     color = 'white',
-  }: WheelchairIconProps) => {
+  }: IconProps) => {
     return (
       <svg
         viewBox="0 0 512 512"

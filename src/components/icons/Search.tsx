@@ -1,11 +1,6 @@
-// Props 타입 정의
-interface SearchIconProps {
-  width?: string; // 아이콘의 너비
-  height?: string; // 아이콘의 높이
-  color?: string; // 아이콘의 색상
-}
+import { IconProps } from "@tsc/theaterDetail/Icon";
 
-const SearchIcon = ({ width = '28px', height = '28px', color = 'white' }: SearchIconProps) => {
+const SearchIcon = ({ width = '28px', height = '28px', color = 'white' }: IconProps) => {
   return (
     <svg
       enableBackground="new 0 0 32 32"
