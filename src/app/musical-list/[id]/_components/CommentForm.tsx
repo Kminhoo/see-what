@@ -44,7 +44,8 @@ const CommentForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-start gap-4 p-4 bg-[#1E1E1E] rounded-lg">
+    <div className="flex items-start gap-4 p-4 bg-[#1E1E1E] rounded-lg max-w-screen-xl mx-auto">
+      {/* 댓글 입력 영역 */}
       <textarea
         className="flex-grow h-24 p-3 text-white bg-[#121212] border border-gray-700 rounded-lg resize-none"
         placeholder="댓글을 입력해주세요."

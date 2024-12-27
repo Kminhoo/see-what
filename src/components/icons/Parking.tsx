@@ -1,14 +1,10 @@
-interface ParkingIconProps {
-    width?: string;
-    height?: string;
-    color?: string;
-  }
+import { IconProps } from "@tsc/theaterDetail/Icon";
   
   export const ParkingIcon = ({
     width = '50px',
     height = '50px',
     color = 'white',
-  }: ParkingIconProps) => {
+  }: IconProps) => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
