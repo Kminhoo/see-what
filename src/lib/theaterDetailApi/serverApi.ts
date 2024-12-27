@@ -32,7 +32,7 @@ import { TheaterDetail } from '@tsc/theaterDetail/theaterDetail';
 //       const musicalInfo = await fetch(
 //         `http://www.kopis.or.kr/openApi/restful/prfplc?service=df0e793f1d47463c9ab5f574c949d9c9&cpage=1&rows=100&shprfnmfct=${name}`
 //       );
-//       if (!musicalInfo.ok || !musicalInfo) throw new Error('fetchTheaterIdList api를 가져오지 못했습니다');
+//       if (!musicalInfo.ok) throw new Error('fetchTheaterIdList api를 가져오지 못했습니다');
 
 //       const text = await musicalInfo.text();
 //       const musicalData = await parseStringPromise(text, {
@@ -49,10 +49,10 @@ import { TheaterDetail } from '@tsc/theaterDetail/theaterDetail';
 // };
 
 export const fetchTheaterDetail = async (id: string): Promise<TheaterDetail> => {
-  const theaterDetail = await fetch(
-    `http://www.kopis.or.kr/openApi/restful/prfplc/${id}?service=df0e793f1d47463c9ab5f574c949d9c9`
-  );
-  if (!theaterDetail.ok || !theaterDetail) throw new Error(`fetchTheaterDetail api정보를 받아오지 못했습니다`);
+  const apiKey = process.env.NEXT_PUBLIC_SEE_WHAT_API_KEY;
+
+  const theaterDetail = await fetch(`http://www.kopis.or.kr/openApi/restful/prfplc/${id}?service=${apiKey}`);
+  if (!theaterDetail.ok) throw new Error(`fetchTheaterDetail api정보를 받아오지 못했습니다`);
 
   const text = await theaterDetail.text();
   const detailData = await parseStringPromise(text, {
@@ -60,6 +60,6 @@ export const fetchTheaterDetail = async (id: string): Promise<TheaterDetail> => 
     trim: true
   });
 
-  console.log('detailData', detailData.dbs.db);
+  // console.log('detailData', detailData.dbs.db);
   return detailData.dbs.db;
 };
