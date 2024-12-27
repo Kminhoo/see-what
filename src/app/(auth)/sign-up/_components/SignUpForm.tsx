@@ -30,7 +30,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="w-full max-w-md space-y-4">
+    <div className="w-[500px] max-w-full space-y-4">
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
         <Input type="email" placeholder="e-mail" {...register('email')} errorMessage={errors.email?.message} />
         <Input
