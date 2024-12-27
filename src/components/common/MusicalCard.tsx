@@ -19,7 +19,7 @@ const MusicalCard = ({ id, poster, title, startDate, endDate, place, awards }: M
       href={`/musical-list/${id}`}
       className="block relative max-w-[300px] h-[400px] w-full rounded-md shadow-md overflow-hidden group"
     >
-      <Image fill objectFit="cover" src={poster} alt="뮤지컬 이미지" className="w-full h-full" />
+      <Image fill={true} sizes="300px" src={poster} alt="뮤지컬 이미지" />
       <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         {awards &&
           (typeof awards === 'string' ? (
