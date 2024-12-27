@@ -42,7 +42,7 @@ export const updateSession = async (request: NextRequest) => {
     }
 
     // 현재 로그인 상태이면서 경로가 /login 또는 /sign-up 인 경우 홈화면으로 리다이렉트
-    if (user && request.nextUrl.pathname.startsWith('/login') && request.nextUrl.pathname.startsWith('/sign-up')) {
+    if (user && request.nextUrl.pathname.startsWith('/login')) {
       return NextResponse.redirect(request.nextUrl.origin);
     }
 

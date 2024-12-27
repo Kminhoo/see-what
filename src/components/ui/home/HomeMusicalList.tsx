@@ -31,7 +31,7 @@ const HomeMusicalList = ({ label, firstSection = false, data }: HomeMusicalListP
   }, []);
 
   return (
-    <section className="text-white">
+    <section className="text-white" id="all-musicals">
       <div className={`max-w-[1280px] m-auto ${firstSection ? `pt-[150px] pb-[100px]` : `py-[100px]`}`}>
         <div>
           <div className="flex items-center justify-between">
@@ -68,23 +68,20 @@ const HomeMusicalList = ({ label, firstSection = false, data }: HomeMusicalListP
                 </SwiperSlide>
               ))}
             </Swiper>
-
-            <div className="absolute w-[1380px] z-50 flex justify-between top-[50%] transform translate-y-[-50%] left-[50%] translate-x-[-50%]  px-4">
-              <Button
-                type="button"
-                className="w-[50px] h-[50px] bg-white/50 hover:bg-white/80 text-black rounded-[50%] border-none outline-none flex items-center justify-center"
-                onClick={handlePrev}
-              >
-                <PrevArrow />
-              </Button>
-              <Button
-                type="button"
-                className="w-[50px] h-[50px] bg-white/50 hover:bg-white/80 text-black rounded-[50%] border-none outline-none flex items-center justify-center"
-                onClick={handleNext}
-              >
-                <NextArrow />
-              </Button>
-            </div>
+            <Button
+              type="button"
+              className="w-[50px] h-[50px] bg-white/50 hover:bg-white/80 text-black rounded-[50%] border-none outline-none flex items-center justify-center absolute top-[50%] transform translate-y-[-50%] z-50 left-[-2%]"
+              onClick={handlePrev}
+            >
+              <PrevArrow />
+            </Button>
+            <Button
+              type="button"
+              className="w-[50px] h-[50px] bg-white/50 hover:bg-white/80 text-black rounded-[50%] border-none outline-none flex items-center justify-center absolute top-[50%] transform translate-y-[-50%] z-50 right-[-2%]"
+              onClick={handleNext}
+            >
+              <NextArrow />
+            </Button>
           </div>
         </div>
       </div>

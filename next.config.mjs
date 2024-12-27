@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+
     remotePatterns: [
       {
         protocol: 'http',
@@ -8,6 +9,8 @@ const nextConfig = {
         pathname: '/upload/**'
       }
     ]
+
+    // domains: ['www.kopis.or.kr']
   }
 };
 
