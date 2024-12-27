@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const CommentForm: React.FC = () => {
+const CommentForm: React.FC = ({onSubmit}) => {
   const [comment, setComment] = useState('');
 
   const handleSubmit = async () => {
@@ -10,7 +10,10 @@ const CommentForm: React.FC = () => {
       alert('댓글을 입력해주세요.');
       return;
     }
+    onSubmit();
   };
+
+  
 
   return (
     <div className="flex items-start gap-4 p-4 bg-[#1E1E1E] rounded-lg max-w-screen-xl mx-auto">

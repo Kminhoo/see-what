@@ -1,10 +1,6 @@
-interface RestroomIconProps {
-    width?: string;
-    height?: string;
-    color?: string;
-  }
+import { IconProps } from "@tsc/theaterDetail/Icon";
   
-  export const RestroomIcon = ({ width = '50px', height = '50px', color = 'white' }: RestroomIconProps) => {
+  export const RestroomIcon = ({ width = '50px', height = '50px', color = 'white' }: IconProps) => {
     return (
       <svg
         viewBox="0 0 20 20"

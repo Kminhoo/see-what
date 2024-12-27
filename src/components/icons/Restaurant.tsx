@@ -1,18 +1,13 @@
-interface RestaurantIconProps {
-    width?: string;
-    height?: string;
-    color?: string;
-  }
+import { IconProps } from "@tsc/theaterDetail/Icon";
   
   export const RestaurantIcon = ({
     width = '50px',
     height = '50px',
     color = 'white',
-  }: RestaurantIconProps) => {
+  }: IconProps) => {
     return (
       <svg
         id="Layer_1"
-        style={{ enableBackground: 'new 0 0 30 30' }}
         viewBox="0 0 30 30"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
