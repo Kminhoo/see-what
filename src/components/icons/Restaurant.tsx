@@ -1,3 +1,4 @@
+
 import { IconProps } from "@tsc/theaterDetail/Icon";
   
   export const RestaurantIcon = ({
@@ -22,3 +23,4 @@ import { IconProps } from "@tsc/theaterDetail/Icon";
       </svg>
     );
   };
+
