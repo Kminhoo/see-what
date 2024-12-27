@@ -15,3 +15,5 @@ const AuthLayout = ({
 };
 
 export default AuthLayout;
+
+import React from 'react';
