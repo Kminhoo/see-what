@@ -1,14 +1,10 @@
-interface CafeIconProps {
-    width?: string;
-    height?: string;
-    color?: string;
-  }
-  
+import { IconProps } from "@tsc/theaterDetail/Icon";
+
   export const CafeIcon = ({
     width = "50px",
     height = "50px",
     color = "white",
-  }: CafeIconProps) => {
+  }: IconProps) => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
