@@ -1,6 +1,9 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+
+import { useRef, useCallback } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -8,18 +11,11 @@ import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 
 import Button from '@components/common/Button';
-import { PrevArrow, NextArrow } from '@components/icons/Arrows';
+import { LeftArrow, RightArrows, DownArrow } from '@components/icons/Arrows';
 
 import man from '@assets/images/man.jpg';
 import hide from '@assets/images/hide.jpg';
 import boots from '@assets/images/boots.jpg';
-
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-import { useRef, useCallback } from 'react';
 
 const HomeCarousel = () => {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -39,9 +35,6 @@ const HomeCarousel = () => {
           <Swiper
             slidesPerView={1}
             effect={'fade'}
-            pagination={{
-              clickable: true
-            }}
             loop={true}
             autoplay={{
               delay: 2000
@@ -66,17 +59,17 @@ const HomeCarousel = () => {
           <div className="absolute z-50 flex justify-between w-full top-1/2 transform -translate-y-1/2 px-4">
             <Button
               type="button"
-              className="w-[50px] h-[50px] bg-white/50 hover:bg-white/80 text-black rounded-[50%] border-none outline-none flex items-center justify-center"
+              className="w-[50px] h-[50px] rounded-[50%] border-none outline-none flex items-center justify-center"
               onClick={handlePrev}
             >
-              <PrevArrow />
+              <LeftArrow className="fill-darkGray" />
             </Button>
             <Button
               type="button"
-              className="w-[50px] h-[50px] bg-white/50 hover:bg-white/80 text-black rounded-[50%] border-none outline-none flex items-center justify-center"
+              className="w-[50px] h-[50px] rounded-[50%] border-none outline-none flex items-center justify-center"
               onClick={handleNext}
             >
-              <NextArrow />
+              <RightArrows className="fill-darkGray" />
             </Button>
           </div>
 
@@ -85,6 +78,9 @@ const HomeCarousel = () => {
             <p className="text-3xl font-medium text-shadow-lg">See What I Wanna See</p>
             <p className="text-3xl font-medium mt-3 text-shadow-lg">모든 극은 보는 사람에 따라 다르다</p>
           </div>
+          <Link href="#all-musicals">
+            <DownArrow className="fill-white w-[40px] h-[40px] absolute bottom-3 z-40 cursor-pointer left-[50%] transform translate-y-[-50%] animate-bounce" />
+          </Link>
         </div>
       </div>
     </section>
