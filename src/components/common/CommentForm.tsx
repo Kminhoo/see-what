@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const CommentForm: React.FC = ({onSubmit}) => {
+const CommentForm: React.FC = () => {
   const [comment, setComment] = useState('');
 
   const handleSubmit = async () => {
@@ -10,7 +10,6 @@ const CommentForm: React.FC = ({onSubmit}) => {
       alert('댓글을 입력해주세요.');
       return;
     }
-    onSubmit();
   };
 
   

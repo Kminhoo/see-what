@@ -8,6 +8,8 @@ interface TheaterDetailProps {
   params: { id: string };
 }
 
+export const dynamic = 'force-dynamic';
+
 const TheaterDetailPage = async ({ params }: TheaterDetailProps) => {
   const { id } = params;
 
