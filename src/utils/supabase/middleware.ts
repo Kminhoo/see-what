@@ -32,6 +32,10 @@ export const updateSession = async (request: NextRequest) => {
       data: { user }
     } = await supabase.auth.getUser();
 
+    if (!user && request.nextUrl.pathname.startsWith('/my-page')) {
+      return NextResponse.redirect(request.nextUrl.origin);
+    }
+
     // 현재 로그인 상태이면서 경로가 /login 경우 홈화면으로 리다이렉트
     if (user && request.nextUrl.pathname.startsWith('/login')) {
       return NextResponse.redirect(request.nextUrl.origin);
