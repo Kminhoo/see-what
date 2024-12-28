@@ -1,7 +1,6 @@
 import { MusicalDetailData } from '@app/types/MusicalDetail';
+import { KOPIS_BASE_URL } from 'constants/musical/musicalApiUrl';
 import { parseStringPromise } from 'xml2js';
-
-const KOPIS_BASE_URL = 'http://kopis.or.kr/openApi/restful/pblprfr';
 
 export const getMusicalDetailData = async (id: string): Promise<MusicalDetailData> => {
   const apiKey = process.env.NEXT_PUBLIC_SEE_WHAT_API_KEY;

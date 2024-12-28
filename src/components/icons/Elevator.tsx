@@ -1,6 +1,8 @@
+
 import { IconProps } from '@tsc/theaterDetail/Icon';
 
 export const ElevatorIcon = ({ width = '50px', height = '50px', color = 'white' }: IconProps) => {
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
