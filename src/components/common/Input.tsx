@@ -1,5 +1,4 @@
 import React from 'react';
-// import { AiFillCloseCircle } from 'react-icons/ai';
 
 type InputProps = {
   errorMessage?: string;
@@ -18,12 +17,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {...rest}
         />
         {errorMessage && <p className="text-red-500 text-xs">{errorMessage}</p>}
-
-        {/* {value && (
-        <button type="button" onClick={() => setValue('')}>
-          <AiFillCloseCircle className="text-gray-300 absolute right-[15px] top-[50%] -translate-y-[50%]" />
-        </button>
-      )} */}
       </div>
     );
   }
