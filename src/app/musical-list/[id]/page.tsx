@@ -6,8 +6,8 @@ import Tabs from './_components/Tabs';
 import CommentSection from '@components/common/CommentSection';
 import { MusicalDetailData } from '@tsc/musicalDetail';
 
-const MusicalDetailPage = async () => {
-  const id = 'PF132236';
+const MusicalDetailPage = async ({ params }: { params: { id: string } }) => {
+  const { id } = params;
 
   const performance: MusicalDetailData = await getMusicalDetailData(id);
 
@@ -18,9 +18,7 @@ const MusicalDetailPage = async () => {
   return (
     <div className="min-h-screen flex justify-center items-center pt-20">
       <div className="border border-gray-700 w-[1280px] mx-auto p-6 bg-[#121212] text-white rounded-lg">
-        {/* 상단 제목과 포스터 */}
         <div className="flex flex-col md:flex-row gap-12">
-          {/* 포스터 */}
           <div className="md:w-1/3 flex flex-col items-center">
             <Image
               src={performance.poster}
@@ -30,8 +28,6 @@ const MusicalDetailPage = async () => {
               className="rounded"
             />
           </div>
-
-          {/* 텍스트 정보 */}
           <div className="md:w-2/3 flex flex-col">
             <h1 className="text-4xl font-bold mb-8 pt-4 border-b border-gray-700 pb-6">{performance.prfnm}</h1>
             <ul className="text-gray-300 mb-4 space-y-4 text-lightGray">
@@ -64,10 +60,8 @@ const MusicalDetailPage = async () => {
           </div>
         </div>
 
-        {/* Tabs */}
         <div className="mt-12">
           <Tabs tabs={['공연정보', '관람후기']}>
-            {/* 소개 이미지 */}
             <div className="flex flex-col gap-6">
               {performance.styurls.map((url: string, index: number) => (
                 <Image
@@ -80,8 +74,6 @@ const MusicalDetailPage = async () => {
                 />
               ))}
             </div>
-
-            {/* 관람 후기 */}
             <div>
               <CommentSection relatedId={id} tableName="musical_review" />
             </div>

@@ -30,7 +30,7 @@ const TheaterListComp = () => {
 
       {/* 공연장 리스트 */}
       <ListComp currentTheaterList={currentTheaterList} />
-      
+
       {/* 페이지네이션 */}
       <Pagenation
         filteredTheater={filteredTheater}
