@@ -7,7 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { googleLogin, login } from '@app/(auth)/action';
-import googoleLogo from '@assets/images/googleLogo.png';
+import googleLogo from '@assets/images/googleLogo.png';
 import { userLoginSchema } from '@lib/schemas/userSchema';
 
 import Button from '@components/common/Button';
@@ -33,7 +33,8 @@ const LoginForm = () => {
   };
 
   const hadleGoogleLogin = () => {
-    googleLogin();
+    const currentUrl: string = window.location.origin;
+    googleLogin(currentUrl);
   };
 
   return (
@@ -52,16 +53,18 @@ const LoginForm = () => {
           label="로그인"
         />
 
-        <Button type="button" onClick={hadleGoogleLogin}>
-          <Image
-            src={googoleLogo}
-            alt="google Login"
-            width={30}
-            height={30}
-            style={{ width: 30, height: 30 }}
-            sizes="30px"
-          />
-        </Button>
+        <div className="flex justify-center mt-4">
+          <Button type="button" onClick={hadleGoogleLogin}>
+            <Image
+              src={googleLogo}
+              alt="google Login"
+              width={30}
+              height={30}
+              style={{ width: 30, height: 30 }}
+              sizes="30px"
+            />
+          </Button>
+        </div>
       </form>
     </div>
   );
