@@ -1,6 +1,4 @@
 import { parseStringPromise } from 'xml2js';
-import { TheaterName } from '@tsc/theaterDetail/theaterName';
-import { TheaterId } from '@tsc/theaterDetail/theaterId';
 import { TheaterDetail } from '@tsc/theaterDetail/theaterDetail';
 
 // export const fetchTheaterNameList = async (): Promise<theaterName[]> => {
@@ -49,17 +47,23 @@ import { TheaterDetail } from '@tsc/theaterDetail/theaterDetail';
 // };
 
 export const fetchTheaterDetail = async (id: string): Promise<TheaterDetail> => {
-  const apiKey = process.env.NEXT_PUBLIC_SEE_WHAT_API_KEY;
+  try {
+    const apiKey = process.env.NEXT_PUBLIC_SEE_WHAT_API_KEY;
 
-  const theaterDetail = await fetch(`http://www.kopis.or.kr/openApi/restful/prfplc/${id}?service=${apiKey}`);
-  if (!theaterDetail.ok) throw new Error(`fetchTheaterDetail api정보를 받아오지 못했습니다`);
+    const theaterDetail = await fetch(`http://www.kopis.or.kr/openApi/restful/prfplc/${id}?service=${apiKey}`);
 
-  const text = await theaterDetail.text();
-  const detailData = await parseStringPromise(text, {
-    explicitArray: false,
-    trim: true
-  });
+    if (!theaterDetail.ok) throw new Error(`fetchTheaterDetail api정보를 받아오지 못했습니다`);
 
-  // console.log('detailData', detailData.dbs.db);
-  return detailData.dbs.db;
+    const text = await theaterDetail.text();
+    const detailData = await parseStringPromise(text, {
+      explicitArray: false,
+      trim: true
+    });
+
+    // console.log('detailData', detailData.dbs.db);
+    const theaterDetailData = detailData.dbs.db;
+    return { ...theaterDetailData, name: theaterDetailData.fcltynm };
+  } catch (error: any) {
+    throw error;
+  }
 };
