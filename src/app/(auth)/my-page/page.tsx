@@ -1,5 +1,12 @@
+import MyProfilPage from '@app/(auth)/my-page/_components/MyProfilPage';
+
 const MyPage = () => {
-  return <div>MyPage</div>;
+  return (
+    <div>
+      wldms
+      <MyProfilPage />
+    </div>
+  );
 };
 
 export default MyPage;
