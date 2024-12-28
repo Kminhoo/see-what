@@ -1,8 +1,10 @@
-import { fetchTheaterDetail } from '@lib/theaterDetailApi/serverApi';
-import TheaterMap from './_components/TheaterMap';
 import CommentForm from '@components/common/CommentForm';
+
+import TheaterMap from './_components/TheaterMap';
 import TheaterInfoDetail from './_components/TheaterInfoDetail';
 import TheaterConvenienceDetail from './_components/TheaterConvenienceDetail';
+
+import { fetchTheaterDetail } from '@lib/theaterDetailApi/serverApi';
 
 interface TheaterDetailProps {
   params: { id: string };
