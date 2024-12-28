@@ -1,5 +1,3 @@
-import CommentForm from '@components/common/CommentForm';
-
 import TheaterMap from './_components/TheaterMap';
 import TheaterInfoDetail from './_components/TheaterInfoDetail';
 import TheaterConvenienceDetail from './_components/TheaterConvenienceDetail';
@@ -43,7 +41,7 @@ const TheaterDetailPage = async ({ params }: TheaterDetailProps) => {
       <hr className="h-px bg-white border-0 my-10 max-w-screen-xl mx-auto" />
 
       {/* 댓글 Section */}
-      <CommentForm />
+      {/* <CommentForm /> */}
     </>
   );
 };
