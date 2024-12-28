@@ -7,7 +7,15 @@ import TheaterConvenienceDetail from './_components/TheaterConvenienceDetail';
 import { fetchTheaterDetail } from '@lib/theaterDetailApi/serverApi';
 
 interface TheaterDetailProps {
-  params: { id: string };
+  params: { id: string; name: string };
+}
+
+export async function generateMetadata({ params }: TheaterDetailProps) {
+  const theaterInfo = await fetchTheaterDetail(params.id);
+  return {
+    title: `${theaterInfo.name}`,
+    description: `${theaterInfo.name} 공연장에 대한 정보입니다.`
+  };
 }
 
 export const dynamic = 'force-dynamic';
@@ -31,9 +39,9 @@ const TheaterDetailPage = async ({ params }: TheaterDetailProps) => {
           <TheaterMap theaterInfo={theaterInfo} />
         </section>
       </div>
-      
+
       <hr className="h-px bg-white border-0 my-10 max-w-screen-xl mx-auto" />
-      
+
       {/* 댓글 Section */}
       <CommentForm />
     </>
