@@ -1,8 +1,8 @@
 import CommentForm from '@components/common/CommentForm';
 
-import TheaterMap from './_components/TheaterMap';
-import TheaterInfoDetail from './_components/TheaterInfoDetail';
-import TheaterConvenienceDetail from './_components/TheaterConvenienceDetail';
+import TheaterMap from '@app/theater-list/[id]/_components/TheaterMap';
+import TheaterInfoDetail from '@app/theater-list/[id]/_components/TheaterInfoDetail';
+import TheaterConvenienceDetail from '@app/theater-list/[id]/_components/TheaterConvenienceDetail';
 
 import { fetchTheaterDetail } from '@lib/theaterDetailApi/serverApi';
 
