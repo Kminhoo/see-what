@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 
-import Pagenation from './Pagenation';
-import SearchComp from './SearchComp';
-import ListComp from './ListComp';
+import Pagenation from '@app/theater-list/_components/Pagenation';
+import SearchComp from '@app/theater-list/_components/SearchComp';
+import ListComp from '@app/theater-list/_components/ListComp';
 
 import { MOCK_DATA } from 'constants/theater/theaterIdName';
 

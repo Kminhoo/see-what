@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import TheaterListComp from "./_components/TheaterListComp";
+import TheaterListComp from "@app/theater-list/_components/TheaterListComp";
 
 export const metadata: Metadata = {
   title: '공연장 정보',

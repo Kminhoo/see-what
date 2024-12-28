@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import SearchIcon from '@components/icons/Search';
+import { SearchIcon } from '@components/icons/DetailIcons';
 
 interface SearchCompProps {
-    searchTheater: string;
-    setSearchTheater: Dispatch<SetStateAction<string>>;
+  searchTheater: string;
+  setSearchTheater: Dispatch<SetStateAction<string>>;
 }
 
-const SearchComp = ({ setSearchTheater, searchTheater } : SearchCompProps) => {
+const SearchComp = ({ setSearchTheater, searchTheater }: SearchCompProps) => {
   return (
     <div className="mt-20 top-0 z-10 p-4 flex justify-center gap-3 items-center ">
       <SearchIcon />

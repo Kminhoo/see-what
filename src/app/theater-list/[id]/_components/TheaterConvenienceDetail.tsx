@@ -1,12 +1,7 @@
 import Image from 'next/image';
 
-import { BabyBottle } from '@components/icons/BabyBottle';
-import { CafeIcon } from '@components/icons/Cafe';
-import { ElevatorIcon } from '@components/icons/Elevator';
-import { ParkingIcon } from '@components/icons/Parking';
-import { RestaurantIcon } from '@components/icons/Restaurant';
-import { RestroomIcon } from '@components/icons/Restroom';
-import { WheelchairIcon } from '@components/icons/Wheelchair';
+import { BabyBottle, CafeIcon, ElevatorIcon, ParkingIcon, RestaurantIcon, RestroomIcon, WheelchairIcon} from '@components/icons/DetailIcons';
+
 import { TheaterDetail } from '@tsc/theaterDetail/theaterDetail';
 import wheelchairRamp from '@assets/images/wheelchairRamp.png';
 
