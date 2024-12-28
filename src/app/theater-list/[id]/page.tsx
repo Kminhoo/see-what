@@ -43,7 +43,7 @@ const TheaterDetailPage = async ({ params }: TheaterDetailProps) => {
       <hr className="h-px bg-white border-0 my-10 max-w-screen-xl mx-auto" />
 
       {/* 댓글 Section */}
-      <CommentForm />
+      {/* <CommentForm /> */}
     </>
   );
 };
