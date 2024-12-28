@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import { getMusicalDetailData } from '@utils/serverApi';
-import { MusicalDetailData } from '@app/types/MusicalDetail';
 import Tabs from './_components/Tabs';
-import CommentSection from './_components/CommentSection';
+import CommentSection from '@components/common/CommentSection';
+import { MusicalDetailData } from '@tsc/musicalDetail';
 
 const MusicalDetailPage = async () => {
   const id = 'PF132236';
@@ -83,7 +83,7 @@ const MusicalDetailPage = async () => {
 
             {/* 관람 후기 */}
             <div>
-              <CommentSection musicalId={id} />
+              <CommentSection relatedId={id} tableName="musical_review" />
             </div>
           </Tabs>
         </div>

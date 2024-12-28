@@ -15,4 +15,5 @@ export interface TheaterDetail {
   runwbarrier: 'Y' | 'N'; // 경사로 장애물 여부 runw_barrier
   elevbarrier: 'Y' | 'N'; // 엘리베이터 장애물 여부  elev_barrier
   parkinglot: 'Y' | 'N'; // 주차장 여부 parking
+  name: string;
 }

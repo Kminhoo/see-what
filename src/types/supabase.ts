@@ -41,18 +41,21 @@ export type Database = {
           created_at: string;
           id: string;
           user_id: string;
+          theater_id: string;
         };
         Insert: {
           comment: string;
           created_at?: string;
           id?: string;
           user_id?: string;
+          theater_id: string;
         };
         Update: {
           comment?: string;
           created_at?: string;
           id?: string;
           user_id?: string;
+          theater_id: string;
         };
         Relationships: [
           {

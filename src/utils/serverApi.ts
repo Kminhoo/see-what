@@ -1,4 +1,4 @@
-import { MusicalDetailData } from '@app/types/MusicalDetail';
+import { MusicalDetailData } from '@tsc/musicalDetail';
 import { KOPIS_BASE_URL } from 'constants/musical/musicalApiUrl';
 import { parseStringPromise } from 'xml2js';
 

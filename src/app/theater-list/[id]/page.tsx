@@ -1,12 +1,20 @@
-import { fetchTheaterDetail } from '@lib/theaterDetailApi/serverApi';
 import TheaterMap from './_components/TheaterMap';
-// import CommentForm from '@components/common/CommentForm';
 import TheaterInfoDetail from './_components/TheaterInfoDetail';
 import TheaterConvenienceDetail from './_components/TheaterConvenienceDetail';
 
+import { fetchTheaterDetail } from '@lib/theaterDetailApi/serverApi';
+
 interface TheaterDetailProps {
-  params: { id: string };
+  params: { id: string; name: string };
 }
+
+export const generateMetadata = async ({ params }: TheaterDetailProps) => {
+  const theaterInfo = await fetchTheaterDetail(params.id);
+  return {
+    title: `${theaterInfo.name}`,
+    description: `${theaterInfo.name} 공연장에 대한 정보입니다.`
+  };
+};
 
 export const dynamic = 'force-dynamic';
 
