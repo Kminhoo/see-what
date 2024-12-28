@@ -1,7 +1,9 @@
 'use client';
 
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
+
 import useKakaoLoader from '@lib/kakaoMap/useKakaoLoader';
+
 import { TheaterDetail } from '@tsc/theaterDetail/theaterDetail';
 
 interface TheaterInfoProps {
