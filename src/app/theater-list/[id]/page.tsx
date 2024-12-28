@@ -1,6 +1,6 @@
 import { fetchTheaterDetail } from '@lib/theaterDetailApi/serverApi';
 import TheaterMap from './_components/TheaterMap';
-import CommentForm from '@components/common/CommentForm';
+// import CommentForm from '@components/common/CommentForm';
 import TheaterInfoDetail from './_components/TheaterInfoDetail';
 import TheaterConvenienceDetail from './_components/TheaterConvenienceDetail';
 
@@ -27,11 +27,11 @@ const TheaterDetailPage = async ({ params }: TheaterDetailProps) => {
           <TheaterMap theaterInfo={theaterInfo} />
         </section>
       </div>
-      
+
       <hr className="h-px bg-white border-0 my-10 max-w-screen-xl mx-auto" />
-      
+
       {/* 댓글 Section */}
-      <CommentForm />
+      {/* <CommentForm /> */}
     </>
   );
 };

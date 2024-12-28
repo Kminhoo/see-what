@@ -3,7 +3,7 @@ import { KOPIS_BASE_URL } from 'constants/musical/musicalApiUrl';
 import { parseStringPromise } from 'xml2js';
 
 export const getMusicalDetailData = async (id: string): Promise<MusicalDetailData> => {
-  const apiKey = process.env.NEXT_PUBLIC_SEE_WHAT_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
   if (!apiKey) {
     throw new Error('API 키가 없습니다.');

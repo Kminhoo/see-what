@@ -5,6 +5,8 @@ import { getMusicalDetailData } from '@utils/serverApi';
 import { MusicalDetailData } from '@app/types/MusicalDetail';
 import Tabs from './_components/Tabs';
 import CommentForm from './_components/CommentForm';
+import CommentList from './_components/CommentList';
+import CommentSection from './_components/CommentSection';
 
 const MusicalDetailPage = async () => {
   const id = 'PF132236';
@@ -82,7 +84,9 @@ const MusicalDetailPage = async () => {
               <div>
                 {/* <h2 className="text-xl font-semibold mb-4">관람후기</h2> */}
                 {/* <h2 className="text-2xl font-semibold border-b border-gray-700 pb-6 mb-6">댓글 등록</h2> */}
-                <CommentForm />
+                {/* <CommentForm musicalId={id} />
+                <CommentList musicalId={id} /> */}
+                <CommentSection musicalId={id} />
               </div>
             </Tabs>
           </div>
