@@ -1,10 +1,12 @@
 export interface GenericComment {
   id: string;
   comment: string;
-  user_id: string;
   created_at: string;
-  related_id: string; // musical_id 또는 theater_id
+  user_id: string;
   nickname: string;
+  related_id?: string;
+  musical_id?: string;
+  theater_id?: string;
 }
 
 export interface CommentFormProps {
@@ -21,6 +23,8 @@ export interface CommentSectionProps {
 export interface CommentListProps {
   comments: GenericComment[];
   tableName: 'musical_review' | 'theater_review';
+  onDelete: (id: string) => void;
+  onUpdate: (updatedComment: { id: string; comment: string }) => void; // 추가
 }
 
 export interface UserData {
@@ -33,6 +37,23 @@ export interface UserData {
 
 export interface CommentDeleteProps {
   commentId: string;
+  commentUserId: string;
   tableName: 'musical_review' | 'theater_review';
   onDelete: (id: string) => void;
+}
+
+export interface CommentInputProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  buttonText: string;
+}
+
+export interface CommentUpdateProps {
+  commentId: string;
+  initialValue: string;
+  tableName: 'musical_review' | 'theater_review';
+  nickname: string;
+  onUpdate: (updatedComment: { id: string; comment: string }) => void;
+  onCancel: () => void;
 }
