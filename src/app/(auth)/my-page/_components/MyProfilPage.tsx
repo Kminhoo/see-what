@@ -1,10 +1,12 @@
 'use client';
 
-import React, { useState, useRef, useEffect, useMemo } from 'react';
-import Button from '@components/common/Button';
+import Image from 'next/image';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+
 import { createClient } from '@utils/supabase/client';
 import { AuthError, User } from '@supabase/supabase-js';
-import Image from 'next/image';
+
+import Button from '@components/common/Button';
 
 const MyProfilPage = () => {
   const [user, setUser] = useState<User | null>(null);
