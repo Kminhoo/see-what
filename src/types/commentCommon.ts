@@ -4,6 +4,7 @@ export interface GenericComment {
   user_id: string;
   created_at: string;
   related_id: string; // musical_id 또는 theater_id
+  nickname: string;
 }
 
 export interface CommentFormProps {
@@ -19,4 +20,19 @@ export interface CommentSectionProps {
 
 export interface CommentListProps {
   comments: GenericComment[];
+  tableName: 'musical_review' | 'theater_review';
+}
+
+export interface UserData {
+  id: string;
+  email: string;
+  nickname: string;
+  profile_image: string | null;
+  created_at: string;
+}
+
+export interface CommentDeleteProps {
+  commentId: string;
+  tableName: 'musical_review' | 'theater_review';
+  onDelete: (id: string) => void;
 }

@@ -1,3 +1,5 @@
+'use server';
+
 import { MusicalDetailData } from '@tsc/musicalDetail';
 import { KOPIS_BASE_URL } from 'constants/musical/musicalApiUrl';
 import { parseStringPromise } from 'xml2js';
@@ -25,7 +27,6 @@ export const getMusicalDetailData = async (id: string): Promise<MusicalDetailDat
 
     const text = await response.text();
     const data = await parseStringPromise(text);
-    console.log('Parsed JSON Data:', JSON.stringify(data));
 
     const details = data?.dbs?.db?.[0];
 

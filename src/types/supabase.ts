@@ -10,6 +10,7 @@ export type Database = {
           id: string;
           user_id: string;
           musical_id: string;
+          nickname: string;
         };
         Insert: {
           comment: string;
@@ -17,6 +18,7 @@ export type Database = {
           id?: string;
           user_id?: string;
           musical_id: string;
+          nickname: string;
         };
         Update: {
           comment?: string;
@@ -24,6 +26,7 @@ export type Database = {
           id?: string;
           user_id?: string;
           musical_id: string;
+          nickname: string;
         };
         Relationships: [
           {
