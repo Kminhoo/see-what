@@ -1,9 +1,11 @@
-import { MusicalDetailData } from '@app/types/MusicalDetail';
+'use server';
+
+import { MusicalDetailData } from '@tsc/musicalDetail';
 import { KOPIS_BASE_URL } from 'constants/musical/musicalApiUrl';
 import { parseStringPromise } from 'xml2js';
 
 export const getMusicalDetailData = async (id: string): Promise<MusicalDetailData> => {
-  const apiKey = process.env.NEXT_PUBLIC_SEE_WHAT_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
   if (!apiKey) {
     throw new Error('API 키가 없습니다.');
@@ -25,7 +27,6 @@ export const getMusicalDetailData = async (id: string): Promise<MusicalDetailDat
 
     const text = await response.text();
     const data = await parseStringPromise(text);
-    console.log('Parsed JSON Data:', JSON.stringify(data));
 
     const details = data?.dbs?.db?.[0];
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { TabProps } from '@app/types/MusicalDetail';
+import { TabProps } from '@tsc/musicalDetail';
 import { useState } from 'react';
 
 const Tabs = ({ tabs, children }: TabProps): React.ReactElement => {

@@ -1,19 +1,15 @@
-import { BabyBottle } from '@components/icons/BabyBottle';
-import { CafeIcon } from '@components/icons/Cafe';
-import { ElevatorIcon } from '@components/icons/Elevator';
-import { ParkingIcon } from '@components/icons/Parking';
-import { RestaurantIcon } from '@components/icons/Restaurant';
-import { RestroomIcon } from '@components/icons/Restroom';
-import { WheelchairIcon } from '@components/icons/Wheelchair';
+import Image from 'next/image';
+
+import { BabyBottle, CafeIcon, ElevatorIcon, ParkingIcon, RestaurantIcon, RestroomIcon, WheelchairIcon} from '@components/icons/DetailIcons';
+
 import { TheaterDetail } from '@tsc/theaterDetail/theaterDetail';
 import wheelchairRamp from '@assets/images/wheelchairRamp.png';
-import Image from 'next/image';
 
 interface TheaterConvenienceProps {
   theaterInfo: TheaterDetail;
 }
 
-export default function TheaterConvenienceDetail({ theaterInfo }: TheaterConvenienceProps) {
+const TheaterConvenienceDetail = ({ theaterInfo }: TheaterConvenienceProps) => {
   return (
     <>
       <div className="mb-10">
@@ -87,4 +83,6 @@ export default function TheaterConvenienceDetail({ theaterInfo }: TheaterConveni
       </div>
     </>
   );
-}
+};
+
+export default TheaterConvenienceDetail;

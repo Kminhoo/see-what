@@ -60,12 +60,13 @@ export const login = async (formData: FormData) => {
 };
 
 // 구글 로그인 및 회원가입
-export const googleLogin = async () => {
+export const googleLogin = async (currentUrl: string) => {
   const supabase = createClient();
+
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `http://localhost:3000/api/auth/callback`,
+      redirectTo: `${currentUrl}/api/auth/callback`,
       queryParams: {
         access_type: 'offline',
         prompt: 'consent'

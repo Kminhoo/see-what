@@ -4,7 +4,7 @@ interface TheaterInfoProps {
   theaterInfo: TheaterDetail;
 }
 
-export default function TheaterInfoDetail({ theaterInfo }: TheaterInfoProps) {
+const TheaterInfoDetail = ({ theaterInfo }: TheaterInfoProps) => {
   return (
     <div>
       <h1 className="text-4xl font-bold mb-10">{theaterInfo.fcltynm}</h1>
@@ -26,4 +26,6 @@ export default function TheaterInfoDetail({ theaterInfo }: TheaterInfoProps) {
       </div>
     </div>
   );
-}
+};
+
+export default TheaterInfoDetail;
