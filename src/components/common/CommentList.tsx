@@ -1,10 +1,16 @@
 'use client';
 
 import { CommentListProps } from '@tsc/commentCommon';
+import CommentDelete from './CommentDelete';
+
 import Pagination from './Pagination';
 import { useState } from 'react';
 
-const CommentList = ({ comments }: CommentListProps): JSX.Element => {
+const CommentList = ({
+  comments,
+  tableName,
+  onDelete
+}: CommentListProps & { tableName: string; onDelete: (id: string) => void }): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
@@ -26,6 +32,7 @@ const CommentList = ({ comments }: CommentListProps): JSX.Element => {
                 <p>{new Date(comment.created_at).toISOString().slice(0, 19).replace('T', ' ')}</p>
               </div>
               <p className="my-2 text-xl">{comment.comment}</p>
+              <CommentDelete commentId={comment.id} tableName={tableName} onDelete={() => onDelete(comment.id)} />
             </li>
           ))
         ) : (
