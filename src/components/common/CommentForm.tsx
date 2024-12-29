@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@utils/supabase/client';
 import { User } from '@supabase/supabase-js';
 import { CommentFormProps, GenericComment, UserData } from '@tsc/commentCommon';
+
 import Button from '@components/common/Button';
+
 
 const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps): JSX.Element => {
   const [newComment, setNewComment] = useState<string>('');
