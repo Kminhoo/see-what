@@ -28,7 +28,7 @@ const CommentList = ({
           paginatedComments.map((comment) => (
             <li key={comment.id} className="p-4 bg-[#2E2E2E] text-white rounded-lg shadow-md">
               <div className="text-darkGray flex gap-3">
-                <p>{comment.user_id}</p>
+                <p>{comment.nickname}</p>
                 <p>{new Date(comment.created_at).toISOString().slice(0, 19).replace('T', ' ')}</p>
               </div>
               <p className="my-2 text-xl">{comment.comment}</p>
