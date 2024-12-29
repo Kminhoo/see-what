@@ -1,40 +1,55 @@
-'use server';
+'use client';
 
-import { GenericComment } from '@tsc/commentCommon';
-import { createClient } from '@utils/supabase/client';
+import { useState } from 'react';
+import CommentInput from './CommentInput';
+import Button from './Button';
+import updateComment from '@utils/comment/updateComment';
+import { CommentUpdateProps } from '@tsc/commentCommon';
 
-const CommentUpdate = async (
-  tableName: 'musical_review' | 'theater_review',
-  updatedComment: Pick<GenericComment, 'id' | 'comment'> & { theater_id?: string }
-): Promise<GenericComment> => {
-  const supabase = createClient();
+const CommentUpdate = ({
+  commentId,
+  initialValue,
+  tableName,
+  nickname,
+  onUpdate,
+  onCancel
+}: CommentUpdateProps): JSX.Element => {
+  const [newComment, setNewComment] = useState<string>(initialValue);
+  const [isUpdating, setIsUpdating] = useState<boolean>(false);
 
-  // 테이블별 업데이트 데이터 타입 정의
-  const updateData =
-    tableName === 'musical_review'
-      ? { comment: updatedComment.comment } // musical_review에 대한 데이터
-      : { comment: updatedComment.comment, theater_id: updatedComment.theater_id! }; // theater_review에 대한 데이터
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsUpdating(true);
 
-  const { data, error } = await supabase
-    .from(tableName)
-    .update(updateData)
-    .eq('id', updatedComment.id)
-    .select()
-    .single();
-
-  if (error) {
-    console.error('Supabase Update Error:', error);
-    throw new Error('댓글 수정 중 오류가 발생했습니다.');
-  }
-
-  // GenericComment 타입에 맞게 데이터 조작
-  const formattedData: GenericComment = {
-    ...data,
-    related_id: tableName === 'musical_review' ? data.musical_id : data.theater_id, // 관련 ID 추가
-    nickname: data.nickname || '닉네임 없음' // nickname이 없을 경우 기본값 제공
+    try {
+      const updatedComment = await updateComment(tableName, {
+        id: commentId,
+        comment: newComment,
+        nickname
+      });
+      onUpdate({ id: commentId, comment: updatedComment.comment });
+      onCancel();
+    } catch (error) {
+      alert('댓글 수정 중 오류가 발생했습니다.');
+      console.error(error);
+    } finally {
+      setIsUpdating(false);
+    }
   };
 
-  return formattedData;
+  return (
+    <div>
+      <CommentInput
+        value={newComment}
+        onChange={(e) => setNewComment(e.target.value)}
+        onSubmit={handleSubmit}
+        buttonText={isUpdating ? '수정 중...' : '수정'}
+      />
+      <Button type="button" className="text-sm text-gray-500 mt-2" onClick={onCancel}>
+        취소
+      </Button>
+    </div>
+  );
 };
 
 export default CommentUpdate;

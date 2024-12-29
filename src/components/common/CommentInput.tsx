@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+import Button from './Button';
 import { CommentInputProps } from '@tsc/commentCommon';
 
 const CommentInput = ({ value, onChange, onSubmit, buttonText }: CommentInputProps): JSX.Element => {
@@ -11,12 +13,12 @@ const CommentInput = ({ value, onChange, onSubmit, buttonText }: CommentInputPro
         value={value}
         onChange={onChange}
       />
-      <button
+      <Button
         type="submit"
         className="px-10 py-2 bg-buttonBackGround text-white font-semibold rounded-lg h-24 flex items-center justify-center"
       >
         {buttonText}
-      </button>
+      </Button>
     </form>
   );
 };
