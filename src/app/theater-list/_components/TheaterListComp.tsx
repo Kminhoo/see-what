@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import Pagenation from '@app/theater-list/_components/Pagenation';
+import TheaterListPagination from '@app/theater-list/_components/TheaterListPagination';
 import SearchComp from '@app/theater-list/_components/SearchComp';
 import ListComp from '@app/theater-list/_components/ListComp';
 
@@ -32,13 +32,14 @@ const TheaterListComp = () => {
       <ListComp currentTheaterList={currentTheaterList} />
 
       {/* 페이지네이션 */}
-      <Pagenation
+      <TheaterListPagination
         filteredTheater={filteredTheater}
         itemsPerPage={itemsPerPage}
         handlePageChange={handlePageChange}
         currentPage={currentPage}
         totalPage={totalPage}
       />
+
     </div>
   );
 };
