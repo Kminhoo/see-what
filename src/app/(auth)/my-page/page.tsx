@@ -1,4 +1,4 @@
-import MyProfilPage from '@app/(auth)/my-page/_components/MyProfilPage';
+import MyProfilePage from '@app/(auth)/my-page/_components/MyProfilePage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const MyPage = () => {
   return (
     <div>
-      <MyProfilPage />
+      <MyProfilePage />
     </div>
   );
 };
