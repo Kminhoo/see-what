@@ -15,8 +15,8 @@ const SignUpPage = () => {
       <div className="min-h-screen flex flex-col items-center justify-center p-4">
         <h1 className="text-white text-3xl font-bold mb-8">SEEWHAT</h1>
         <SignUpForm />
-        <div className="flex flex-col items-center space-y-2 text-sm text-darkGray">
-          <Link href="/login" className="hover:text-white">
+        <div className="flex flex-col items-center space-y-2 text-sm text-darkGray my-5">
+          <Link href="/login" className="hover:text-white my-1">
             이미 계정이 있으신가요? Login
           </Link>
           <Link href="/" className="hover:text-white">
