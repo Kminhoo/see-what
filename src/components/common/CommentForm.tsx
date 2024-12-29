@@ -3,25 +3,43 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@utils/supabase/client';
 import { User } from '@supabase/supabase-js';
-import { CommentFormProps, GenericComment } from '@tsc/commentCommon';
+import { CommentFormProps, GenericComment, UserData } from '@tsc/commentCommon';
 
 const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps): JSX.Element => {
   const [newComment, setNewComment] = useState<string>('');
-  const [user, setUser] = useState<User | null>(null);
+  const [authUser, setAuthUser] = useState<User | null>(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
   const supabase = createClient();
 
   useEffect(() => {
     const fetchUser = async () => {
       const {
         data: { user },
-        error
+        error: authError
       } = await supabase.auth.getUser();
-      if (error) {
-        console.error('사용자 정보를 가져오는 중 오류 발생:', error);
-      } else {
-        setUser(user);
+
+      if (authError) {
+        console.error('로그인 유저 정보를 가져오는 중 오류 발생:', authError);
+        return;
+      }
+
+      setAuthUser(user);
+
+      if (user) {
+        const { data: userData, error: userError } = await supabase
+          .from('users')
+          .select('*')
+          .eq('id', user.id)
+          .single();
+
+        if (userError) {
+          console.error('users 테이블에서 유저 정보를 가져오는 중 오류 발생:', userError);
+        } else {
+          setUserData(userData);
+        }
       }
     };
+
     fetchUser();
   }, [supabase]);
 
@@ -33,21 +51,24 @@ const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps)
       return;
     }
 
-    if (!user) {
+    if (!authUser) {
       alert('로그인이 필요합니다.');
       return;
     }
+    const nickname = userData?.nickname || '닉네임 없음';
 
     const newCommentData =
       tableName === 'musical_review'
         ? {
             comment: newComment,
-            user_id: user.id,
+            user_id: authUser.id,
+            nickname,
             musical_id: relatedId
           }
         : {
             comment: newComment,
-            user_id: user.id,
+            user_id: authUser.id,
+            nickname,
             theater_id: relatedId
           };
 
@@ -55,8 +76,7 @@ const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps)
       const { data, error } = await supabase.from(tableName).insert([newCommentData]).select();
 
       if (error) {
-        console.error('댓글 등록 중 오류 발생:', error);
-        alert('댓글 등록 중 오류가 발생했습니다.');
+        alert(`댓글 등록 중 오류가 발생했습니다: ${error.message}`);
         return;
       }
 
@@ -70,8 +90,7 @@ const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps)
         alert('댓글이 성공적으로 등록되었습니다.');
       }
     } catch (error) {
-      console.error('댓글 등록 중 오류:', error);
-      alert('댓글 등록 중 오류가 발생했습니다.');
+      alert(`댓글 등록 중 오류가 발생했습니다: ${error}`);
     }
   };
 

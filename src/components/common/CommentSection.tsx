@@ -27,6 +27,10 @@ const CommentSection = ({ relatedId, tableName }: CommentSectionProps): JSX.Elem
     setComments((prev) => [newComment, ...prev]);
   };
 
+  const handleCommentDeleted = (deletedId: string) => {
+    setComments((prev) => prev.filter((comment) => comment.id !== deletedId));
+  };
+
   if (error) {
     return <p className="text-red-500">{error}</p>;
   }
@@ -34,7 +38,7 @@ const CommentSection = ({ relatedId, tableName }: CommentSectionProps): JSX.Elem
   return (
     <div>
       <CommentForm relatedId={relatedId} tableName={tableName} onCommentAdded={handleCommentAdded} />
-      <CommentList comments={comments} />
+      <CommentList comments={comments} tableName={tableName} onDelete={handleCommentDeleted} />
     </div>
   );
 };
