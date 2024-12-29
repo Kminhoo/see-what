@@ -1,9 +1,7 @@
-import TheaterListComp from "./_components/TheaterListComp";
+import TheaterListComp from './_components/TheaterListComp';
 
 const TheaterListPage = () => {
-
-  return <TheaterListComp/>
-  ;
+  return <TheaterListComp />;
 };
 
 export default TheaterListPage;

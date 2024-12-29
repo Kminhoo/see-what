@@ -1,8 +1,12 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+import { startTransition, useEffect } from 'react';
 
 const Error = ({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) => {
+  const { refresh } = useRouter();
+
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -10,7 +14,14 @@ const Error = ({ error, reset }: { error: Error & { digest?: string }; reset: ()
   return (
     <div>
       <h2>Something went wrong!</h2>
-      <button onClick={() => reset()}>
+      <button
+        onClick={() =>
+          startTransition(() => {
+            refresh();
+            reset();
+          })
+        }
+      >
         Try again
         <div>{error.message}</div>
       </button>

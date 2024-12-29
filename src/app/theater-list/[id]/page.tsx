@@ -8,6 +8,8 @@ interface TheaterDetailProps {
   params: { id: string };
 }
 
+export const dynamic = 'force-dynamic';
+
 const TheaterDetailPage = async ({ params }: TheaterDetailProps) => {
   const { id } = params;
 
@@ -27,9 +29,9 @@ const TheaterDetailPage = async ({ params }: TheaterDetailProps) => {
           <TheaterMap theaterInfo={theaterInfo} />
         </section>
       </div>
-      
+
       <hr className="h-px bg-white border-0 my-10 max-w-screen-xl mx-auto" />
-      
+
       {/* 댓글 Section */}
       <CommentForm />
     </>

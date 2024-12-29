@@ -2,18 +2,17 @@
 
 import { useState } from 'react';
 
-const CommentForm: React.FC = ({onSubmit}) => {
+const CommentForm: React.FC = () => {
   const [comment, setComment] = useState('');
 
-  const handleSubmit = async () => {
-    if (!comment.trim()) {
-      alert('댓글을 입력해주세요.');
-      return;
-    }
-    onSubmit();
-  };
-
-  
+  // const handleSubmit = async () => {
+  //   if (!comment.trim()) {
+  //     alert('댓글을 입력해주세요.');
+  //     return;
+  //   }
+  //   {onSubmit}
+  //   onSubmit();
+  // };
 
   return (
     <div className="flex items-start gap-4 p-4 bg-[#1E1E1E] rounded-lg max-w-screen-xl mx-auto">
@@ -28,7 +27,7 @@ const CommentForm: React.FC = ({onSubmit}) => {
       {/* 등록 버튼 */}
       <button
         className="px-10 py-2 bg-buttonBackGround text-white font-semibold rounded-lg h-24 flex items-center justify-center"
-        onClick={handleSubmit}
+        // onClick={handleSubmit}
       >
         등 록
       </button>
