@@ -32,7 +32,7 @@ const CommentList = ({
                 <p>{new Date(comment.created_at).toISOString().slice(0, 19).replace('T', ' ')}</p>
               </div>
               <p className="my-2 text-xl">{comment.comment}</p>
-              <CommentDelete commentId={comment.id} tableName={tableName} onDelete={() => onDelete(comment.id)} />
+              <CommentDelete commentUserId={comment.user_id} commentId={comment.id} tableName={tableName} onDelete={() => onDelete(comment.id)} />
             </li>
           ))
         ) : (
@@ -51,29 +51,3 @@ const CommentList = ({
 };
 
 export default CommentList;
-
-// import SwiperPagination from '@components/common/Pagination';
-// import { CommentListProps } from '@tsc/commentCommon';
-
-// const CommentList = ({ comments }: CommentListProps): JSX.Element => {
-//   const itemsPerPage = 5;
-//   return (
-//     <div className="mt-4">
-//       <SwiperPagination
-//         items={comments}
-//         itemsPerPage={itemsPerPage}
-//         renderItem={(comment) => (
-//           <li key={comment.id} className="p-4 bg-[#2E2E2E] text-white rounded-lg shadow-md">
-//             <div className="text-darkGray flex gap-3">
-//               <p className="text-lg">{comment.user_id}</p>
-//               <p className="text-lg">{new Date(comment.created_at).toISOString().slice(0, 19).replace('T', ' ')}</p>
-//             </div>
-//             <p className="my-2 text-xl">{comment.comment}</p>
-//           </li>
-//         )}
-//       />
-//     </div>
-//   );
-// };
-
-// export default CommentList;

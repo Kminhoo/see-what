@@ -33,6 +33,7 @@ export interface UserData {
 
 export interface CommentDeleteProps {
   commentId: string;
+  commentUserId: string;
   tableName: 'musical_review' | 'theater_review';
   onDelete: (id: string) => void;
 }
