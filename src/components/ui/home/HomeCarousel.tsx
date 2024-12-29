@@ -46,13 +46,28 @@ const HomeCarousel = () => {
             }}
           >
             <SwiperSlide>
-              <Image src={man} alt="musical smiling man" className="w-full h-full object-cover object-bottom" />
+              <Image
+                priority
+                src={man}
+                alt="musical smiling man"
+                className="w-full h-full object-cover object-bottom"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={hide} alt="musical jekyll And Hide" className="w-full h-full object-cover object-bottom" />
+              <Image
+                priority
+                src={hide}
+                alt="musical jekyll And Hide"
+                className="w-full h-full object-cover object-bottom"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={boots} alt="musical Kingky Boots" className="w-full h-full object-cover object-bottom" />
+              <Image
+                priority
+                src={boots}
+                alt="musical Kingky Boots"
+                className="w-full h-full object-cover object-bottom"
+              />
             </SwiperSlide>
           </Swiper>
 

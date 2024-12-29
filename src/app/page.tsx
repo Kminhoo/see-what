@@ -40,8 +40,8 @@ const HomePage = async () => {
       <HomeMusicalList label="현재 상영 및 상영 예정 중인 뮤지컬" firstSection={true} data={allMusical} />
       <HomeMusicalList label="어린이 뮤지컬" data={childMusical} />
       <HomeMusicalList label="수상작 뮤지컬" data={awardMusical} />
-      <HomeMusicalList label="수도권 상영 뮤지컬" data={seoulMusical} />
-      <HomeMusicalList label="지방권 상영 뮤지컬" data={regionMusical} />
+      <HomeMusicalList label="서울지역 상영 뮤지컬" data={seoulMusical} />
+      <HomeMusicalList label="서울 외 지역 상영 뮤지컬" data={regionMusical} />
     </main>
   );
 };

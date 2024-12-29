@@ -42,7 +42,7 @@ const TheaterDetailPage = async ({ params }: TheaterDetailProps) => {
       <hr className="h-px bg-white border-0 my-10 max-w-screen-xl mx-auto" />
 
       {/* 댓글 Section */}
-      <div className='max-w-screen-xl mx-auto'>
+      <div className="max-w-screen-xl mx-auto">
         <CommentSection relatedId={id} tableName="theater_review" />
       </div>
     </>

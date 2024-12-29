@@ -3,6 +3,7 @@
 import { parseStringPromise } from 'xml2js';
 
 import { Musical } from '@tsc/musicalList';
+
 import { getDateRange } from '@utils/getDateRange';
 
 export const fetchMusicalList = async (startDate: string, endDate: string): Promise<Musical[]> => {
@@ -23,7 +24,11 @@ export const fetchMusicalList = async (startDate: string, endDate: string): Prom
 
     return data.dbs.db;
   } catch (error: any) {
-    throw Error(error);
+    if (error instanceof Error) {
+      throw error;
+    }
+
+    throw new Error(String(error));
   }
 };
 
@@ -55,8 +60,12 @@ export const fetchAwardMusicalList = async (startDate: string, endDate: string):
     }));
 
     return musicals;
-  } catch (error: any) {
-    throw Error(error);
+  } catch (error) {
+    if (error instanceof Error) {
+      throw error;
+    }
+
+    throw new Error(String(error));
   }
 };
 
@@ -77,8 +86,12 @@ export const fetchChildMusical = async (startDate: string, endDate: string): Pro
     });
 
     return data.dbs.db;
-  } catch (error: any) {
-    throw Error(error);
+  } catch (error) {
+    if (error instanceof Error) {
+      throw error;
+    }
+
+    throw new Error(String(error));
   }
 };
 
@@ -113,7 +126,11 @@ export const fetchInfiniteMusicalList = async ({
       items: data.dbs.db,
       nextPage: data.dbs.db.length === 32 ? (pageParam += 1) : undefined
     };
-  } catch (error: any) {
-    throw Error(error);
+  } catch (error) {
+    if (error instanceof Error) {
+      throw error;
+    }
+
+    throw new Error(String(error));
   }
 };
