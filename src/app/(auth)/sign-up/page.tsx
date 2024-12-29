@@ -1,6 +1,13 @@
 import Link from 'next/link';
 
 import SignUpForm from './_components/SignUpForm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'SEEWHAT 회원가입',
+  description:
+    'SEEWHAT에 새로운 계정을 만들고 가입하세요. 간편한 회원가입 절차를 통해 SEEWHAT의 다양한 서비스를 이용해보세요.'
+};
 
 const SignUpPage = () => {
   return (
