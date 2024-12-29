@@ -2,6 +2,7 @@
 
 import { CommentDeleteProps } from '@tsc/commentCommon';
 import { createClient } from '@utils/supabase/client';
+import Button from './Button';
 
 const supabase = createClient();
 
@@ -23,9 +24,9 @@ const CommentDelete = ({ commentId, tableName, onDelete }: CommentDeleteProps): 
   };
 
   return (
-    <button onClick={handleDelete} className="text-gray-500 hover:underline text-sm">
+    <Button type="button" onClick={handleDelete} className="text-gray-500 hover:underline text-sm">
       삭제
-    </button>
+    </Button>
   );
 };
 

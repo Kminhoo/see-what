@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@utils/supabase/client';
 import { User } from '@supabase/supabase-js';
 import { CommentFormProps, GenericComment, UserData } from '@tsc/commentCommon';
+import Button from './Button';
 
 const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps): JSX.Element => {
   const [newComment, setNewComment] = useState<string>('');
@@ -102,12 +103,12 @@ const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps)
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
       />
-      <button
+      <Button
         type="submit"
         className="px-10 py-2 bg-buttonBackGround text-white font-semibold rounded-lg h-24 flex items-center justify-center"
       >
         등록
-      </button>
+      </Button>
     </form>
   );
 };
