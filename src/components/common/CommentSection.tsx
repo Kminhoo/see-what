@@ -31,6 +31,16 @@ const CommentSection = ({ relatedId, tableName }: CommentSectionProps): JSX.Elem
     setComments((prev) => prev.filter((comment) => comment.id !== deletedId));
   };
 
+  const handleCommentUpdated = (updatedComment: { id: string; comment: string }) => {
+    setComments((prev) =>
+      prev.map((comment) =>
+        comment.id === updatedComment.id
+          ? { ...comment, comment: updatedComment.comment } // 수정된 댓글 업데이트
+          : comment
+      )
+    );
+  };
+
   if (error) {
     return <p className="text-red-500">{error}</p>;
   }
@@ -38,7 +48,12 @@ const CommentSection = ({ relatedId, tableName }: CommentSectionProps): JSX.Elem
   return (
     <div>
       <CommentForm relatedId={relatedId} tableName={tableName} onCommentAdded={handleCommentAdded} />
-      <CommentList comments={comments} tableName={tableName} onDelete={handleCommentDeleted} />
+      <CommentList
+        comments={comments}
+        tableName={tableName}
+        onDelete={handleCommentDeleted}
+        onUpdate={handleCommentUpdated}
+      />
     </div>
   );
 };

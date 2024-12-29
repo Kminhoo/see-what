@@ -53,7 +53,7 @@ const CommentDelete = ({ commentId, commentUserId, tableName, onDelete }: Commen
   if (!isOwner) return null;
 
   return (
-    <Button type="button" onClick={handleDelete} className="text-gray-500 hover:underline text-sm">
+    <Button type="button" onClick={handleDelete} className="text-gray-500 text-sm">
       삭제
     </Button>
   );
