@@ -35,7 +35,6 @@ const CommentList = ({
         {paginatedComments.length > 0 ? (
           paginatedComments.map((comment) => (
             <li key={comment.id} className="p-4 bg-[#2E2E2E] text-white rounded-lg shadow-md">
-
               {editingId === comment.id ? (
                 <CommentUpdate
                   commentId={comment.id}
@@ -56,7 +55,12 @@ const CommentList = ({
                     <Button type="button" className="text-sm text-gray-500" onClick={() => setEditingId(comment.id)}>
                       수정
                     </Button>
-                    <CommentDelete commentId={comment.id} tableName={tableName} onDelete={() => onDelete(comment.id)} commentUserId={comment.user_id}/>
+                    <CommentDelete
+                      commentId={comment.id}
+                      tableName={tableName}
+                      onDelete={() => onDelete(comment.id)}
+                      commentUserId={comment.user_id}
+                    />
                   </div>
                 </>
               )}
@@ -76,6 +80,5 @@ const CommentList = ({
     </div>
   );
 };
-
 
 export default CommentList;
