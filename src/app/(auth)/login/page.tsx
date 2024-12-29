@@ -1,5 +1,11 @@
 import Link from 'next/link';
 import LoginForm from './_components/LoginForm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'SEEWHAT 로그인',
+  description: 'SEEWHAT에 안전하고 간편하게 SEEWHAT 로그인 하여 접속하세요.'
+};
 
 const LoginPage = () => {
   return (
