@@ -63,6 +63,7 @@ SEEWHAT 웹 애플리케이션은 KOPIS(공연예술통합 전산망) API를 활
 
 <br>
 
+
 ## 📱 화면 구성
 
 |            홈페이지            |           뮤지컬 리스트           |               뮤지컬 상세               |               장소 리스트               |
@@ -74,6 +75,7 @@ SEEWHAT 웹 애플리케이션은 KOPIS(공연예술통합 전산망) API를 활
 | ![detailpage](https://github.com/user-attachments/assets/a9fd623d-003d-454e-878c-e9548e3f347c) | ![GOMCAM20241230_1331380847-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/76cce167-4239-4597-a0fd-133ad8c9d047) | ![loginpage](https://github.com/user-attachments/assets/32632e41-51cf-4eed-a943-e0fc5ab82809) | ![GOMCAM20241230_1333080227-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a31d99f0-3f0a-425a-8601-1a24e7137c11) |
 
 <br>
+
 
 ## ⚙️ 기술 스택
 
