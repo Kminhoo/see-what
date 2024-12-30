@@ -1,19 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import CommentInput from './CommentInput';
-import Button from './Button';
-import updateComment from '@utils/comment/updateComment';
-import { CommentUpdateProps } from '@tsc/commentCommon';
 
-const CommentUpdate = ({
-  commentId,
-  initialValue,
-  tableName,
-  nickname,
-  onUpdate,
-  onCancel
-}: CommentUpdateProps): JSX.Element => {
+import Button from '@components/common/Button';
+import CommentInput from '@components/common/CommentInput';
+
+import updateComment from '@lib/actions/comment/updateComment';
+
+import { CommentUpdateProps } from '@tsc/common/commentCommon';
+
+const CommentUpdate = ({ commentId, initialValue, tableName, nickname, onUpdate, onCancel }: CommentUpdateProps) => {
   const [newComment, setNewComment] = useState<string>(initialValue);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

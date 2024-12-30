@@ -6,7 +6,7 @@ import TheaterListPagination from '@app/theater-list/_components/TheaterListPagi
 import SearchComp from '@app/theater-list/_components/SearchComp';
 import ListComp from '@app/theater-list/_components/ListComp';
 
-import { MOCK_DATA } from 'constants/theater/theaterIdName';
+import { MOCK_DATA } from '@data/theater/theaterIdName';
 
 const TheaterListComp = () => {
   const [searchTheater, setSearchTheater] = useState('');
@@ -39,7 +39,6 @@ const TheaterListComp = () => {
         currentPage={currentPage}
         totalPage={totalPage}
       />
-
     </div>
   );
 };

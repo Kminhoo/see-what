@@ -3,11 +3,11 @@ import type { Metadata } from 'next';
 import HomeCarousel from '@components/ui/home/HomeCarousel';
 import HomeMusicalList from '@components/ui/home/HomeMusicalList';
 
-import { fetchAwardMusicalList, fetchChildMusical, fetchMusicalList } from '@lib/actions/getMusicalLists';
+import { fetchAwardMusicalList, fetchChildMusical, fetchMusicalList } from '@lib/actions/musical-group/getMusicalLists';
 
 import { getDateRange } from '@utils/getDateRange';
 
-import { Musical } from '@tsc/musicalList';
+import { Musical } from '@tsc/home/musicalList';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -40,8 +40,8 @@ const HomePage = async () => {
       <HomeMusicalList label="현재 상영 및 상영 예정 중인 뮤지컬" firstSection={true} data={allMusical} />
       <HomeMusicalList label="어린이 뮤지컬" data={childMusical} />
       <HomeMusicalList label="수상작 뮤지컬" data={awardMusical} />
-      <HomeMusicalList label="수도권 상영 뮤지컬" data={seoulMusical} />
-      <HomeMusicalList label="지방권 상영 뮤지컬" data={regionMusical} />
+      <HomeMusicalList label="서울지역 상영 뮤지컬" data={seoulMusical} />
+      <HomeMusicalList label="서울 외 지역 상영 뮤지컬" data={regionMusical} />
     </main>
   );
 };

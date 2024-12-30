@@ -1,15 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { CommentDeleteProps } from '@tsc/commentCommon';
-import { createClient } from '@utils/supabase/client';
 
 import Button from '@components/common/Button';
 
+import { createClient } from '@utils/supabase/client';
+
+import { CommentDeleteProps } from '@tsc/common/commentCommon';
 
 const supabase = createClient();
 
-const CommentDelete = ({ commentId, commentUserId, tableName, onDelete }: CommentDeleteProps): JSX.Element | null => {
+const CommentDelete = ({ commentId, commentUserId, tableName, onDelete }: CommentDeleteProps) => {
   const [isOwner, setIsOwner] = useState(false);
 
   useEffect(() => {
@@ -32,10 +33,7 @@ const CommentDelete = ({ commentId, commentUserId, tableName, onDelete }: Commen
 
   const handleDelete = async () => {
     try {
-      const { error } = await supabase
-        .from(tableName)
-        .delete()
-        .eq('id', commentId);
+      const { error } = await supabase.from(tableName).delete().eq('id', commentId);
 
       if (error) {
         alert(`댓글 삭제 중 오류가 발생했습니다. ${error.message}`);

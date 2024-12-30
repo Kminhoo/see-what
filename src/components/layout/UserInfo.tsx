@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 import User from '@components/icons/User';
 
-import { logout } from '@app/(auth)/action';
+import { logout } from '@lib/actions/auth/action';
 
 const UserInfo = () => {
   const [displayMenu, setDisplayMenu] = useState<boolean>(false);

@@ -16,22 +16,22 @@ const Footer = () => {
     {
       id: 2,
       name: '김문식',
-      src: 'https://github.com/kminhoo'
+      src: 'https://github.com/kimmunsik20240905'
     },
     {
       id: 3,
       name: '김지은',
-      src: 'https://github.com/kminhoo'
+      src: 'https://github.com/zzieni'
     },
     {
       id: 4,
       name: '김진실',
-      src: 'https://github.com/kminhoo'
+      src: 'https://github.com/jinsil-kim'
     },
     {
       id: 5,
       name: '한다영',
-      src: 'https://github.com/kminhoo'
+      src: 'https://github.com/gksek015'
     }
   ];
 
