@@ -2,6 +2,8 @@
 
 SEEWHAT 웹 애플리케이션은 KOPIS(공연예술통합 전산망) API를 활용하여 뮤지컬 정보 및 리뷰를 제공하는 플랫폼입니다. 뮤지컬 덕후들을 위한 종합적인 정보를 제공합니다.
 
+![GOMCAM 20241230_1336570885](https://github.com/user-attachments/assets/d2445d8a-b8bb-4faf-be08-4cc9d6a83cd4)
+
 <br>
 
 # 👨‍👩‍👧‍👦 Our Team
@@ -40,6 +42,12 @@ SEEWHAT 웹 애플리케이션은 KOPIS(공연예술통합 전산망) API를 활
 - Tanstack Query를 활용한 데이터 페칭
 - useInfiniteQuery 훅을 사용하여 무한스크롤 구현
 
+#### 뮤지컬 디테일 페이지
+
+- 뮤지컬 상세 정보 확인 기능
+- 상세 뮤지컬에 대한 CRUD 기능
+- 뮤지컬 후기 페이지네이션
+
 #### 공연장 리스트 페이지
 
 - MOCK_DATA를 활용한 공연장 데이터 표시
@@ -57,9 +65,13 @@ SEEWHAT 웹 애플리케이션은 KOPIS(공연예술통합 전산망) API를 활
 
 ## 📱 화면 구성
 
-|                                                                    홈페이지                                                                    |                                                                    브라우저                                                                    |                                                                     모바일                                                                     |                                                                     모바일                                                                     |
-| :--------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: |
-| ![GOMCAM20241218_2055230719-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/354d6a0b-c79d-4f28-9c91-563b35242fdb) | ![GOMCAM20241218_2054560458-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/339d10f3-3889-48b7-afbd-bbe1ba2c8bd4) | ![GOMCAM20241218_2056020172-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/5bbffa79-fc1d-4af5-960a-d4e8c3f19908) | ![GOMCAM20241218_2055470641-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/e9e714a0-1af2-4670-9bad-04882b8d5b82) |
+|            홈페이지            |           뮤지컬 리스트           |               뮤지컬 상세               |               장소 리스트               |
+| :----------------------------: | :--------------------------: | :--------------------------------: | :--------------------------------: |
+| ![GOMCAM20241230_1143590310-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/2f352a00-97a9-49ca-8a46-851120327cdc) | ![GOMCAM20241230_1327350565-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/fc97e977-ce37-4dd3-9acc-5e5eab1bafe6) | ![GOMCAM20241230_1329570918-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/60c33aa7-2c10-4ba6-80ba-dda873a0a3d2)| ![listpage](https://github.com/user-attachments/assets/e4cb6b78-922f-4ee2-8e18-12d2e2e66468) |
+
+|            장소 상세            |           마이페이지           |               로그인               |               회원가입               |
+| :----------------------------: | :--------------------------: | :--------------------------------: | :--------------------------------: |
+| ![detailpage](https://github.com/user-attachments/assets/a9fd623d-003d-454e-878c-e9548e3f347c) | ![GOMCAM20241230_1331380847-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/76cce167-4239-4597-a0fd-133ad8c9d047) | ![loginpage](https://github.com/user-attachments/assets/32632e41-51cf-4eed-a943-e0fc5ab82809) | ![GOMCAM20241230_1333080227-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a31d99f0-3f0a-425a-8601-1a24e7137c11) |
 
 <br>
 
