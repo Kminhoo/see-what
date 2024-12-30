@@ -1,6 +1,6 @@
 import Pagination from '@components/common/Pagination';
 
-import { Theater } from 'constants/theater/theaterIdName';
+import { Theater } from '@data/theater/theaterIdName';
 
 interface TheaterListPaginationProps {
   filteredTheater: Theater[];
@@ -30,27 +30,3 @@ const TheaterListPagination = ({
 };
 
 export default TheaterListPagination;
-
-// import SwiperPagination from '@components/common/Pagination';
-// import { Theater } from 'constants/theater/theaterIdName';
-
-// interface PagenationProps {
-//   items: Theater[];
-//   itemsPerPage: number;
-// }
-
-// const TheaterListPagination = ({ items, itemsPerPage }: PagenationProps): JSX.Element => {
-//   return (
-//     <SwiperPagination
-//       items={items}
-//       itemsPerPage={itemsPerPage}
-//       renderItem={(item) => (
-//         <div key={item.id} className="p-4  text-white rounded-md">
-//           <p>{item.name}</p>
-//         </div>
-//       )}
-//     />
-//   );
-// };
-
-// export default TheaterListPagination;

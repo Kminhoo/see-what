@@ -1,12 +1,14 @@
 'use client';
 
 import Image from 'next/image';
+
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-import { createClient } from '@utils/supabase/client';
 import { AuthError, User } from '@supabase/supabase-js';
 
 import Button from '@components/common/Button';
+
+import { createClient } from '@utils/supabase/client';
 
 const MyProfilPage = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -116,7 +118,6 @@ const MyProfilPage = () => {
         <div className="relative cursor-pointer" onClick={handleImageClick}>
           <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center border border-gray-200 overflow-hidden">
             {profileImage ? (
-              // <img src={profileImage} alt="프로필" className="w-full h-full object-cover" />
               <Image src={profileImage} alt="프로필" fill sizes="96px" className="object-cover rounded-full" />
             ) : (
               <svg className="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 24 24">

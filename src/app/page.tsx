@@ -3,11 +3,11 @@ import type { Metadata } from 'next';
 import HomeCarousel from '@components/ui/home/HomeCarousel';
 import HomeMusicalList from '@components/ui/home/HomeMusicalList';
 
-import { fetchAwardMusicalList, fetchChildMusical, fetchMusicalList } from '@lib/actions/getMusicalLists';
+import { fetchAwardMusicalList, fetchChildMusical, fetchMusicalList } from '@lib/actions/musical-group/getMusicalLists';
 
 import { getDateRange } from '@utils/getDateRange';
 
-import { Musical } from '@tsc/musicalList';
+import { Musical } from '@tsc/home/musicalList';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';

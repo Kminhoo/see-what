@@ -3,7 +3,8 @@
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-import { userLoginSchema } from '@lib/schemas/userSchema';
+import { userLoginSchema } from '@lib/revalidation/userSchema';
+
 import createClient from '@utils/supabase/server';
 
 // 회원가입
@@ -86,4 +87,6 @@ export const googleLogin = async (currentUrl: string) => {
 export const logout = async () => {
   const supabase = createClient();
   await supabase.auth.signOut();
+
+  redirect('/');
 };

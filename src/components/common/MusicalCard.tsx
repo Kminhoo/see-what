@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Musical } from '@tsc/musicalList';
+import { Musical } from '@tsc/home/musicalList';
 
 interface MusicalCardProps {
   id: Musical['mt20id'];

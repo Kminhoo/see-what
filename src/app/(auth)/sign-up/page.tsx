@@ -1,7 +1,8 @@
+import type { Metadata } from 'next';
+
 import Link from 'next/link';
 
-import SignUpForm from './_components/SignUpForm';
-import { Metadata } from 'next';
+import SignUpForm from '@app/(auth)/sign-up/_components/SignUpForm';
 
 export const metadata: Metadata = {
   title: 'SEEWHAT 회원가입',

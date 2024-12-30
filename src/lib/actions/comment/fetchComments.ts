@@ -1,6 +1,6 @@
 'use server';
 
-import { GenericComment } from '@tsc/commentCommon';
+import { GenericComment } from '@tsc/common/commentCommon';
 
 export const fetchComments = async (
   relatedId: string,

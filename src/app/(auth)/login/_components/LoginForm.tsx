@@ -6,13 +6,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { googleLogin, login } from '@app/(auth)/action';
-import googleLoginLogo from '@assets/images/googleLoginLogo.png';
-
-import { userLoginSchema } from '@lib/schemas/userSchema';
+import { googleLogin, login } from '@lib/actions/auth/action';
 
 import Button from '@components/common/Button';
-import Input from '@components/common/Input';
+import AuthInput from '@app/(auth)/_components/AuthInput';
+
+import { userLoginSchema } from '@lib/revalidation/userSchema';
+
+import googleLoginLogo from '@assets/images/googleLoginLogo.png';
 
 type LoginFormData = z.infer<typeof userLoginSchema>;
 
@@ -41,8 +42,8 @@ const LoginForm = () => {
   return (
     <div className="w-[400px] max-w-full space-y-4">
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-        <Input type="email" placeholder="e-mail" {...register('email')} errorMessage={errors.email?.message} />
-        <Input
+        <AuthInput type="email" placeholder="e-mail" {...register('email')} errorMessage={errors.email?.message} />
+        <AuthInput
           type="password"
           placeholder="password"
           {...register('password')}
@@ -62,4 +63,5 @@ const LoginForm = () => {
     </div>
   );
 };
+
 export default LoginForm;

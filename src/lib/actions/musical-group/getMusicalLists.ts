@@ -2,7 +2,7 @@
 
 import { parseStringPromise } from 'xml2js';
 
-import { Musical } from '@tsc/musicalList';
+import { Musical } from '@tsc/home/musicalList';
 
 import { getDateRange } from '@utils/getDateRange';
 
@@ -23,7 +23,7 @@ export const fetchMusicalList = async (startDate: string, endDate: string): Prom
     });
 
     return data.dbs.db;
-  } catch (error: any) {
+  } catch (error) {
     if (error instanceof Error) {
       throw error;
     }

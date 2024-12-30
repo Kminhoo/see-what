@@ -1,8 +1,10 @@
 'use server';
 
-import { MusicalDetailData } from '@tsc/musicalDetail';
-import { KOPIS_BASE_URL } from 'constants/musical/musicalApiUrl';
 import { parseStringPromise } from 'xml2js';
+
+import { MusicalDetailData } from '@tsc/musical-detail/musicalDetail';
+
+import { KOPIS_BASE_URL } from '@constants/musical/musicalApiUrl';
 
 export const getMusicalDetailData = async (id: string): Promise<MusicalDetailData> => {
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
