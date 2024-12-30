@@ -1,17 +1,19 @@
 'use client';
 
-import { CommentListProps } from '@tsc/commentCommon';
-import CommentDelete from './CommentDelete';
-import CommentUpdate from './CommentUpdate';
-import Pagination from './Pagination';
 import { useState } from 'react';
-import Button from './Button';
+
+import Button from '@components/common/Button';
+import CommentDelete from '@components/common/CommentDelete';
+import CommentUpdate from '@components/common/CommentUpdate';
+import Pagination from '@components/common/Pagination';
+
+import { CommentListProps } from '@tsc/common/commentCommon';
 
 const CommentList = ({
   comments,
   tableName,
   onDelete
-}: CommentListProps & { tableName: string; onDelete: (id: string) => void }): JSX.Element => {
+}: CommentListProps & { tableName: string; onDelete: (id: string) => void }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [editingId, setEditingId] = useState<string | null>(null);
   const itemsPerPage = 5;
@@ -35,7 +37,6 @@ const CommentList = ({
         {paginatedComments.length > 0 ? (
           paginatedComments.map((comment) => (
             <li key={comment.id} className="p-4 bg-[#2E2E2E] text-white rounded-lg shadow-md">
-
               {editingId === comment.id ? (
                 <CommentUpdate
                   commentId={comment.id}
@@ -56,7 +57,12 @@ const CommentList = ({
                     <Button type="button" className="text-sm text-gray-500" onClick={() => setEditingId(comment.id)}>
                       수정
                     </Button>
-                    <CommentDelete commentId={comment.id} tableName={tableName} onDelete={() => onDelete(comment.id)} commentUserId={comment.user_id}/>
+                    <CommentDelete
+                      commentId={comment.id}
+                      tableName={tableName}
+                      onDelete={() => onDelete(comment.id)}
+                      commentUserId={comment.user_id}
+                    />
                   </div>
                 </>
               )}
@@ -76,6 +82,5 @@ const CommentList = ({
     </div>
   );
 };
-
 
 export default CommentList;

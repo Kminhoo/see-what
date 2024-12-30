@@ -5,11 +5,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { signup } from '@app/(auth)/action';
-import { userSignUpSchema } from '@lib/schemas/userSchema';
-
 import Button from '@components/common/Button';
-import Input from '@components/common/Input';
+import AuthInput from '@app/(auth)/_components/AuthInput';
+
+import { signup } from '@lib/actions/auth/action';
+import { userSignUpSchema } from '@lib/revalidation/userSchema';
 
 type SignUpFormData = z.infer<typeof userSignUpSchema>;
 
@@ -33,20 +33,25 @@ const SignUpForm = () => {
   return (
     <div className="w-[500px] max-w-full space-y-4">
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-        <Input type="email" placeholder="e-mail" {...register('email')} errorMessage={errors.email?.message} />
-        <Input
+        <AuthInput type="email" placeholder="e-mail" {...register('email')} errorMessage={errors.email?.message} />
+        <AuthInput
           type="password"
           placeholder="password"
           {...register('password')}
           errorMessage={errors.password?.message}
         />
-        <Input
+        <AuthInput
           type="password"
           placeholder="confirm password"
           {...register('confirmPassword')}
           errorMessage={errors.confirmPassword?.message}
         />
-        <Input type="text" placeholder="nickname" {...register('nickname')} errorMessage={errors.nickname?.message} />
+        <AuthInput
+          type="text"
+          placeholder="nickname"
+          {...register('nickname')}
+          errorMessage={errors.nickname?.message}
+        />
         <Button
           className="w-full p-3 bg-buttonBackGround text-white rounded-sm hover:bg-zinc-700 transition-colors"
           type="submit"

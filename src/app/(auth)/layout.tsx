@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import authBackground from '@assets/images/authBackgroud.jpg';
 
 const AuthLayout = ({
@@ -15,5 +16,3 @@ const AuthLayout = ({
 };
 
 export default AuthLayout;
-
-import React from 'react';

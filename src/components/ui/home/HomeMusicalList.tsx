@@ -11,7 +11,7 @@ import MusicalCard from '@components/common/MusicalCard';
 import Button from '@components/common/Button';
 import { NextArrow, PrevArrow } from '@components/icons/Arrows';
 
-import { Musical } from '@tsc/musicalList';
+import { Musical } from '@tsc/home/musicalList';
 
 interface HomeMusicalListProps {
   label: string;

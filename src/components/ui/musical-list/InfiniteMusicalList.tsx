@@ -11,7 +11,7 @@ import MusicalCard from '@components/common/MusicalCard';
 import InfiniteLoading from '@app/musical-list/_components/InfiniteLoading';
 import InfiniteError from '@app/musical-list/_components/InfiniteError';
 
-import { fetchInfiniteMusicalList } from '@lib/actions/getMusicalLists';
+import { fetchInfiniteMusicalList } from '@lib/actions/musical-group/getMusicalLists';
 
 const InfiniteMusicalList = () => {
   const { ref, inView } = useInView();

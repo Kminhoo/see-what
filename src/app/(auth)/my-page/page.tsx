@@ -1,5 +1,6 @@
+import type { Metadata } from 'next';
+
 import MyProfilePage from '@app/(auth)/my-page/_components/MyProfilePage';
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'SEEWHAT 마이페이지',

@@ -1,7 +1,8 @@
 'use server';
 
-import { GenericComment } from '@tsc/commentCommon';
 import { createClient } from '@utils/supabase/client';
+
+import { GenericComment } from '@tsc/common/commentCommon';
 
 const updateComment = async (
   tableName: 'musical_review' | 'theater_review',

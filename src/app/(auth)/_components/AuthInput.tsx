@@ -4,7 +4,7 @@ type InputProps = {
   errorMessage?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const AuthInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, onChange, type, placeholder, errorMessage, ...rest }, ref) => {
     return (
       <div className="relative">
@@ -22,6 +22,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = 'Input';
+AuthInput.displayName = 'Input';
 
-export default Input;
+export default AuthInput;

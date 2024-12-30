@@ -1,10 +1,14 @@
 'use server';
 
 import Image from 'next/image';
-import { getMusicalDetailData } from '@utils/serverApi';
-import Tabs from './_components/Tabs';
+
 import CommentSection from '@components/common/CommentSection';
-import { MusicalDetailData } from '@tsc/musicalDetail';
+
+import Tabs from '@app/musical-list/[id]/_components/Tabs';
+
+import { getMusicalDetailData } from '@lib/actions/musical-group/getMusicalDetailData';
+
+import { MusicalDetailData } from '@tsc/musical-detail/musicalDetail';
 
 const MusicalDetailPage = async ({ params }: { params: { id: string } }) => {
   const { id } = params;
@@ -30,7 +34,7 @@ const MusicalDetailPage = async ({ params }: { params: { id: string } }) => {
           </div>
           <div className="md:w-2/3 flex flex-col">
             <h1 className="text-4xl font-bold mb-8 pt-4 border-b border-gray-700 pb-6">{performance.prfnm}</h1>
-            <ul className="text-gray-300 mb-4 space-y-4 text-lightGray">
+            <ul className="mb-4 space-y-4 text-lightGray">
               <li>
                 <strong className="w-[80px] pr-2 inline-block">공연장소</strong> {performance.fcltynm}
               </li>

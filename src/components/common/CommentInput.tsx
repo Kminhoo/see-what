@@ -1,10 +1,12 @@
 'use client';
 
 import React from 'react';
-import Button from './Button';
-import { CommentInputProps } from '@tsc/commentCommon';
 
-const CommentInput = ({ value, onChange, onSubmit, buttonText }: CommentInputProps): JSX.Element => {
+import Button from '@components/common/Button';
+
+import { CommentInputProps } from '@tsc/common/commentCommon';
+
+const CommentInput = ({ value, onChange, onSubmit, buttonText }: CommentInputProps) => {
   return (
     <form onSubmit={onSubmit} className="flex items-start gap-4 p-4 bg-[#1E1E1E] rounded-lg">
       <textarea
