@@ -7,7 +7,10 @@ import CommentDelete from '@components/common/CommentDelete';
 import CommentUpdate from '@components/common/CommentUpdate';
 import Pagination from '@components/common/Pagination';
 
+import { createClient } from '@utils/supabase/client';
 import { CommentListProps } from '@tsc/common/commentCommon';
+
+const supabase = createClient();
 
 const CommentList = ({
   comments: initialComments,
@@ -22,7 +25,21 @@ const CommentList = ({
   const [comments, setComments] = useState(initialComments);
   const [currentPage, setCurrentPage] = useState(1);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
   const itemsPerPage = 5;
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data, error } = await supabase.auth.getUser();
+      if (error) {
+        console.error('사용자 정보를 가져오는 중 오류가 발생했습니다:', error.message);
+        return;
+      }
+      setCurrentUserId(data?.user?.id || null);
+    };
+
+    fetchUser();
+  }, []);
 
   useEffect(() => {
     setComments(initialComments);
@@ -46,6 +63,7 @@ const CommentList = ({
                   commentId={comment.id}
                   initialValue={comment.comment}
                   tableName={tableName}
+                  commentUserId={comment.user_id}
                   nickname={comment.nickname}
                   onUpdate={(updatedComment) => {
                     setComments((prev) =>
@@ -66,9 +84,11 @@ const CommentList = ({
                   </div>
                   <p className="my-2 text-xl">{comment.comment}</p>
                   <div className="flex gap-2">
-                    <Button type="button" className="text-sm text-gray-500" onClick={() => setEditingId(comment.id)}>
-                      수정
-                    </Button>
+                    {currentUserId === comment.user_id && (
+                      <Button type="button" className="text-sm text-gray-500" onClick={() => setEditingId(comment.id)}>
+                        수정
+                      </Button>
+                    )}
                     <CommentDelete
                       commentId={comment.id}
                       tableName={tableName}

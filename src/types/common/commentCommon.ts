@@ -53,6 +53,7 @@ export interface CommentUpdateProps {
   commentId: string;
   initialValue: string;
   tableName: 'musical_review' | 'theater_review';
+  commentUserId: string;
   nickname: string;
   onUpdate: (updatedComment: { id: string; comment: string }) => void;
   onCancel: () => void;
