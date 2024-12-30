@@ -9,6 +9,7 @@ import { AuthError, User } from '@supabase/supabase-js';
 import Button from '@components/common/Button';
 
 import { createClient } from '@utils/supabase/client';
+import { toast } from 'react-toastify';
 
 const MyProfilPage = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -101,7 +102,7 @@ const MyProfilPage = () => {
         if (updateError) throw updateError;
       }
 
-      alert('프로필이 업데이트되었습니다.');
+      toast.success('프로필이 업데이트되었습니다.');
     } catch (error) {
       if (error instanceof AuthError) {
         console.error('프로필 업데이트 중 오류 발생:', error.message);

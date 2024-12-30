@@ -13,9 +13,11 @@ import type { Swiper as SwiperType } from 'swiper';
 import Button from '@components/common/Button';
 import { LeftArrow, RightArrows, DownArrow } from '@components/icons/Arrows';
 
-import man from '@assets/images/man.jpg';
-import hide from '@assets/images/hide.jpg';
-import boots from '@assets/images/boots.jpg';
+import cyrano from '@assets/images/cyrano.png';
+import kingboots from '@assets/images/kingboots.jpg';
+import smile from '@assets/images/smile.webp';
+import wicked from '@assets/images/wicked.jpg';
+import kingkyboots from '@assets/images/kingkyboots.jpg';
 
 const HomeCarousel = () => {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -46,28 +48,19 @@ const HomeCarousel = () => {
             }}
           >
             <SwiperSlide>
-              <Image
-                priority
-                src={man}
-                alt="musical smiling man"
-                className="w-full h-full object-cover object-bottom"
-              />
+              <Image src={cyrano} alt="musical smiling man" className="w-full h-full object-cover object-bottom" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image
-                priority
-                src={hide}
-                alt="musical jekyll And Hide"
-                className="w-full h-full object-cover object-bottom"
-              />
+              <Image src={kingboots} alt="musical jekyll And Hide" className="w-full h-full object-cover object-bottom" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image
-                priority
-                src={boots}
-                alt="musical Kingky Boots"
-                className="w-full h-full object-cover object-bottom"
-              />
+              <Image src={wicked} alt="musical jekyll And Hide" className="w-full h-full object-cover object-bottom" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src={smile} alt="musical Kingky Boots" className="w-full h-full object-cover object-bottom" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src={kingkyboots} alt="musical Kingky Boots" className="w-full h-full object-cover object-bottom" />
             </SwiperSlide>
           </Swiper>
 

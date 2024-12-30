@@ -7,6 +7,7 @@ import Button from '@components/common/Button';
 import { createClient } from '@utils/supabase/client';
 
 import { CommentDeleteProps } from '@tsc/common/commentCommon';
+import { toast } from 'react-toastify';
 
 const supabase = createClient();
 
@@ -33,17 +34,19 @@ const CommentDelete = ({ commentId, commentUserId, tableName, onDelete }: Commen
 
   const handleDelete = async () => {
     try {
-      const { error } = await supabase.from(tableName).delete().eq('id', commentId);
+      if (window.confirm('삭제하시겠습니까?')) {
+        const { error } = await supabase.from(tableName).delete().eq('id', commentId);
 
-      if (error) {
-        alert(`댓글 삭제 중 오류가 발생했습니다. ${error.message}`);
-        return;
+        if (error) {
+          toast.error(`댓글 삭제 중 오류가 발생했습니다. ${error.message}`);
+          return;
+        }
+
+        toast.success('댓글이 성공적으로 삭제되었습니다.');
+        onDelete(commentId);
       }
-
-      alert('댓글이 성공적으로 삭제되었습니다.');
-      onDelete(commentId);
     } catch (error) {
-      alert(`댓글 삭제 중 오류가 발생했습니다. ${error}`);
+      toast.error(`댓글 삭제 중 오류가 발생했습니다. ${error}`);
     }
   };
 
