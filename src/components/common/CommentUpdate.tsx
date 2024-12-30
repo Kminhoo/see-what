@@ -9,6 +9,7 @@ import { createClient } from '@utils/supabase/client';
 import updateComment from '@lib/actions/comment/updateComment';
 
 import { CommentUpdateProps } from '@tsc/common/commentCommon';
+import { toast } from 'react-toastify';
 
 const supabase = createClient();
 
@@ -51,10 +52,11 @@ const CommentUpdate = ({
         comment: newComment,
         nickname
       });
+      toast.success('댓글이 성공적으로 수정되었습니다.');
       onUpdate({ id: commentId, comment: updatedComment.comment });
       onCancel();
     } catch (error) {
-      alert('댓글 수정 중 오류가 발생했습니다.');
+      toast.error('댓글 수정 중 오류가 발생했습니다.');
       console.error(error);
     }
   };

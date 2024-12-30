@@ -7,6 +7,7 @@ import Footer from '@components/layout/Footer';
 import Providers from '@components/provider/TQProvider';
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import ToastProvider from './ToastProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="ko" className="scroll-smooth">
       <body className={`${inter.className} bg-blackDefault`}>
         <Providers>
+          <ToastProvider />
           <Header />
           {children}
           <Footer />

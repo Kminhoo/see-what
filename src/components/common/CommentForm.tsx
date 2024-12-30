@@ -9,6 +9,7 @@ import CommentInput from '@components/common/CommentInput';
 import { createClient } from '@utils/supabase/client';
 
 import { CommentFormProps, GenericComment, UserData } from '@tsc/common/commentCommon';
+import { toast } from 'react-toastify';
 
 const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps) => {
   const [newComment, setNewComment] = useState<string>('');
@@ -52,12 +53,12 @@ const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps)
     e.preventDefault();
 
     if (!newComment.trim()) {
-      alert('댓글을 입력해주세요.');
+      toast.error('댓글을 입력해주세요.');
       return;
     }
 
     if (!authUser) {
-      alert('로그인이 필요합니다.');
+      toast.error('로그인이 필요합니다.');
       return;
     }
     const nickname = userData?.nickname || '닉네임 없음';
@@ -81,7 +82,7 @@ const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps)
       const { data, error } = await supabase.from(tableName).insert([newCommentData]).select();
 
       if (error) {
-        alert(`댓글 등록 중 오류가 발생했습니다: ${error.message}`);
+        toast.error(`댓글 등록 중 오류가 발생했습니다: ${error.message}`);
         return;
       }
 
@@ -92,10 +93,10 @@ const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps)
         };
         setNewComment('');
         onCommentAdded(newCommentWithRelatedId as GenericComment);
-        alert('댓글이 성공적으로 등록되었습니다.');
+        toast.success('댓글이 성공적으로 등록되었습니다.');
       }
     } catch (error) {
-      alert(`댓글 등록 중 오류가 발생했습니다: ${error}`);
+      toast.error(`댓글 등록 중 오류가 발생했습니다: ${error}`);
     }
   };
 
