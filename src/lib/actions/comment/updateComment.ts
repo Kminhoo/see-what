@@ -1,19 +1,29 @@
 'use server';
 
 import { createClient } from '@utils/supabase/client';
-
 import { GenericComment } from '@tsc/common/commentCommon';
 
 const updateComment = async (
   tableName: 'musical_review' | 'theater_review',
-  updatedComment: Pick<GenericComment, 'id' | 'comment' | 'nickname'> & { musical_id?: string; theater_id?: string }
+  updatedComment: Pick<GenericComment, 'id' | 'comment' | 'nickname'> & {
+    musical_id?: string;
+    theater_id?: string;
+  }
 ): Promise<GenericComment> => {
   const supabase = createClient();
 
-  const updateData: { comment: string; nickname: string } & ({ musical_id: string } | { theater_id: string }) =
+  const updateData =
     tableName === 'musical_review'
-      ? { comment: updatedComment.comment, nickname: updatedComment.nickname, musical_id: updatedComment.musical_id! }
-      : { comment: updatedComment.comment, nickname: updatedComment.nickname, theater_id: updatedComment.theater_id! };
+      ? {
+          comment: updatedComment.comment,
+          nickname: updatedComment.nickname,
+          musical_id: updatedComment.musical_id || ''
+        }
+      : {
+          comment: updatedComment.comment,
+          nickname: updatedComment.nickname,
+          theater_id: updatedComment.theater_id || ''
+        };
 
   const { data, error } = await supabase
     .from(tableName)
