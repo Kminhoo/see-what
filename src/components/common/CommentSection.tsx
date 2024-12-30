@@ -37,9 +37,7 @@ const CommentSection = ({ relatedId, tableName }: CommentSectionProps) => {
   const handleCommentUpdated = (updatedComment: { id: string; comment: string }) => {
     setComments((prev) =>
       prev.map((comment) =>
-        comment.id === updatedComment.id
-          ? { ...comment, comment: updatedComment.comment } // 수정된 댓글 업데이트
-          : comment
+        comment.id === updatedComment.id ? { ...comment, comment: updatedComment.comment } : comment
       )
     );
   };

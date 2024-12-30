@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Button from '@components/common/Button';
 import CommentDelete from '@components/common/CommentDelete';
@@ -10,22 +10,26 @@ import Pagination from '@components/common/Pagination';
 import { CommentListProps } from '@tsc/common/commentCommon';
 
 const CommentList = ({
-  comments,
+  comments: initialComments,
   tableName,
-  onDelete
-}: CommentListProps & { tableName: string; onDelete: (id: string) => void }) => {
+  onDelete,
+  onUpdate
+}: CommentListProps & {
+  tableName: string;
+  onDelete: (id: string) => void;
+  onUpdate: (updatedComment: { id: string; comment: string }) => void;
+}) => {
+  const [comments, setComments] = useState(initialComments);
   const [currentPage, setCurrentPage] = useState(1);
   const [editingId, setEditingId] = useState<string | null>(null);
   const itemsPerPage = 5;
 
+  useEffect(() => {
+    setComments(initialComments);
+  }, [initialComments]);
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-  };
-
-  const handleCommentUpdated = (updatedComment: { id: string; comment: string }) => {
-    comments = comments.map((comment) =>
-      comment.id === updatedComment.id ? { ...comment, comment: updatedComment.comment } : comment
-    );
   };
 
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -43,7 +47,15 @@ const CommentList = ({
                   initialValue={comment.comment}
                   tableName={tableName}
                   nickname={comment.nickname}
-                  onUpdate={handleCommentUpdated}
+                  onUpdate={(updatedComment) => {
+                    setComments((prev) =>
+                      prev.map((item) =>
+                        item.id === updatedComment.id ? { ...item, comment: updatedComment.comment } : item
+                      )
+                    );
+                    onUpdate(updatedComment);
+                    setEditingId(null);
+                  }}
                   onCancel={() => setEditingId(null)}
                 />
               ) : (
@@ -60,7 +72,10 @@ const CommentList = ({
                     <CommentDelete
                       commentId={comment.id}
                       tableName={tableName}
-                      onDelete={() => onDelete(comment.id)}
+                      onDelete={(id) => {
+                        setComments((prev) => prev.filter((comment) => comment.id !== id));
+                        onDelete(id);
+                      }}
                       commentUserId={comment.user_id}
                     />
                   </div>
