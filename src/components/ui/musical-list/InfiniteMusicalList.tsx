@@ -11,7 +11,7 @@ import MusicalCard from '@components/common/MusicalCard';
 import InfiniteLoading from '@app/musical-list/_components/InfiniteLoading';
 import InfiniteError from '@app/musical-list/_components/InfiniteError';
 
-import { fetchInfiniteMusicalList } from '@lib/actions/getMusicalLists';
+import { fetchInfiniteMusicalList } from '@lib/actions/musical-group/getMusicalLists';
 
 const InfiniteMusicalList = () => {
   const { ref, inView } = useInView();
@@ -21,7 +21,9 @@ const InfiniteMusicalList = () => {
     queryFn: ({ pageParam }) => fetchInfiniteMusicalList({ pageParam }),
     getNextPageParam: (lastPage) => lastPage.nextPage,
     initialPageParam: 1,
-    retry: 3
+    retry: 3,
+    staleTime: 1000 * 60 * 60 * 25,
+    gcTime: 1000 * 60 * 60 * 25
   });
 
   useEffect(() => {

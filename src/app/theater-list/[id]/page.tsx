@@ -1,9 +1,10 @@
+import CommentSection from '@components/common/CommentSection';
+
 import TheaterMap from '@app/theater-list/[id]/_components/TheaterMap';
 import TheaterInfoDetail from '@app/theater-list/[id]/_components/TheaterInfoDetail';
 import TheaterConvenienceDetail from '@app/theater-list/[id]/_components/TheaterConvenienceDetail';
 
-import { fetchTheaterDetail } from '@lib/theaterDetailApi/serverApi';
-import CommentSection from '@components/common/CommentSection';
+import { fetchTheaterDetail } from '@lib/theaterDetailApi/getTheaterDetailData';
 
 interface TheaterDetailProps {
   params: { id: string; name: string };
@@ -42,7 +43,7 @@ const TheaterDetailPage = async ({ params }: TheaterDetailProps) => {
       <hr className="h-px bg-white border-0 my-10 max-w-screen-xl mx-auto" />
 
       {/* 댓글 Section */}
-      <div className='max-w-screen-xl mx-auto'>
+      <div className="max-w-screen-xl mx-auto">
         <CommentSection relatedId={id} tableName="theater_review" />
       </div>
     </>

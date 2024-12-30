@@ -1,8 +1,17 @@
 import Image from 'next/image';
 
-import { BabyBottle, CafeIcon, ElevatorIcon, ParkingIcon, RestaurantIcon, RestroomIcon, WheelchairIcon} from '@components/icons/DetailIcons';
+import {
+  BabyBottle,
+  CafeIcon,
+  ElevatorIcon,
+  ParkingIcon,
+  RestaurantIcon,
+  RestroomIcon,
+  WheelchairIcon
+} from '@components/icons/DetailIcons';
 
 import { TheaterDetail } from '@tsc/theaterDetail/theaterDetail';
+
 import wheelchairRamp from '@assets/images/wheelchairRamp.png';
 
 interface TheaterConvenienceProps {

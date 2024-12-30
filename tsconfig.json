@@ -27,7 +27,9 @@
       "@data/*": ["data/*"],
       "@tsc/*": ["types/*"],
       "@assets/*": ["assets/*"],
-      "@lib/*": ["lib/*"]
+      "@lib/*": ["lib/*"],
+      "@constants/*": ["constants/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "include": ["src", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,6 +1,8 @@
+import type { Metadata } from 'next';
+
 import Link from 'next/link';
-import LoginForm from './_components/LoginForm';
-import { Metadata } from 'next';
+
+import LoginForm from '@app/(auth)/login/_components/LoginForm';
 
 export const metadata: Metadata = {
   title: 'SEEWHAT 로그인',

@@ -1,14 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { createClient } from '@utils/supabase/client';
+
 import { User } from '@supabase/supabase-js';
-import { CommentFormProps, GenericComment, UserData } from '@tsc/commentCommon';
 
 import CommentInput from '@components/common/CommentInput';
 
+import { createClient } from '@utils/supabase/client';
 
-const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps): JSX.Element => {
+import { CommentFormProps, GenericComment, UserData } from '@tsc/common/commentCommon';
+
+const CommentForm = ({ relatedId, tableName, onCommentAdded }: CommentFormProps) => {
   const [newComment, setNewComment] = useState<string>('');
   const [authUser, setAuthUser] = useState<User | null>(null);
   const [userData, setUserData] = useState<UserData | null>(null);

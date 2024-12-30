@@ -1,12 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { fetchComments } from '@utils/comment/fetchComments';
-import CommentList from './CommentList';
-import CommentForm from './CommentForm';
-import { CommentSectionProps, GenericComment } from '@tsc/commentCommon';
 
-const CommentSection = ({ relatedId, tableName }: CommentSectionProps): JSX.Element => {
+import CommentList from '@components/common/CommentList';
+import CommentForm from '@components/common/CommentForm';
+
+import { fetchComments } from '@lib/actions/comment/fetchComments';
+
+import { CommentSectionProps, GenericComment } from '@tsc/common/commentCommon';
+
+const CommentSection = ({ relatedId, tableName }: CommentSectionProps) => {
   const [comments, setComments] = useState<GenericComment[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -34,9 +37,7 @@ const CommentSection = ({ relatedId, tableName }: CommentSectionProps): JSX.Elem
   const handleCommentUpdated = (updatedComment: { id: string; comment: string }) => {
     setComments((prev) =>
       prev.map((comment) =>
-        comment.id === updatedComment.id
-          ? { ...comment, comment: updatedComment.comment } // 수정된 댓글 업데이트
-          : comment
+        comment.id === updatedComment.id ? { ...comment, comment: updatedComment.comment } : comment
       )
     );
   };
